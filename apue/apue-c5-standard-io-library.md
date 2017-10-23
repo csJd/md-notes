@@ -32,7 +32,7 @@ int fclose(FILE *fp); // returns: 0 if OK, EOF on error
 
 ### 3. Reading and Writing a Stream  P120
 
-```c
+```C
 #include <stdio.h>
 // read one character at a time
 int getc(FILE *fp); // returns: next character if OK, EOF on end of file or error
@@ -57,7 +57,7 @@ size_t fwrite(const void *ptr, size_t size, size_t nobj, FILE *fp);
 
 ### 4. Formatted I/O  P127
 
-```
+```C
 #include <stdio.h>
 int printf(const char *format, ...);
 int dprintf(int fd, const char *format, ...);
