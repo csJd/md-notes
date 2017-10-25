@@ -1,4 +1,6 @@
-### 1.  stat, fstat, lstat（P74）
+# 第4章 文件和目录
+
+## 1.  stat, fstat, lstat（P74）
 
 ```c
 #include <sys/stat.h>
@@ -12,7 +14,7 @@ int lstat(const char *pathname, struct stat *buf);
 //Return: 0 on success, -1 on error
 ```
 
-### 2. 文件类型信息包含在`stat`结构的`st_mode`成员中（P76）
+## 2. 文件类型信息包含在`stat`结构的`st_mode`成员中（P76）
 
 | Macro       | Type of file   |
 | ----------- | -------------- |
@@ -26,7 +28,7 @@ Usage：`if (S_ISREG(buf.st_mode)) {//do something if the ralated file is regula
 
 
 
-### 3. File Access Permissions （EP99）
+## 3. File Access Permissions （EP99）
 
 | `st_mode` mask | Meaning       |
 | -------------- | ------------- |
@@ -45,7 +47,7 @@ int faccessat(int fd, const char *pathname, int mode, int flag);
 
 
 
-### 4. `umask` and `chmod` related (EP104)
+## 4. `umask` and `chmod` related (EP104)
 
 ```c
 #include <sys/stat.h>
@@ -56,7 +58,7 @@ int chown(const char *pathname, uid_t owner, git_t group);//returns: 0 if OK, �
 
 
 
-### 5. File Truncation (EP112)
+## 5. File Truncation (EP112)
 
 ```c
 #include <unistd.h>
@@ -65,7 +67,7 @@ int truncate(const char *pathname, off_t length); //returns: 0 if ok, -1 on erro
 
 
 
-### 6. `link` related (EP116) 
+## 6. `link` related (EP116) 
 
 ```c
 #include <unistd.h>
@@ -74,4 +76,3 @@ int unlink(const char *pathname);
 int remove(const char *pathname); 
 int symlink(const char *actualpath, const char *sympath);//both return: 0 if ok, -1 on error
 ```
-

@@ -1,4 +1,6 @@
-### 1. Buf and setbuf P117
+第5章 标准I/O库
+
+## 1. Buf and setbuf P117
 
 > 标准错误是不带缓冲的，打开至终端设备的流是行缓冲的，其他的流是全缓冲的
 
@@ -13,7 +15,7 @@ void setbuf(FILE *fp, char *buf);
 
 
 
-###2. Stream P119 
+## 2. Stream P119 
 
 ```C
 #include <stdio.h>
@@ -30,7 +32,7 @@ int fclose(FILE *fp); // returns: 0 if OK, EOF on error
 
 
 
-### 3. Reading and Writing a Stream  P120
+## 3. Reading and Writing a Stream  P120
 
 ```C
 #include <stdio.h>
@@ -55,7 +57,7 @@ size_t fwrite(const void *ptr, size_t size, size_t nobj, FILE *fp);
 
 
 
-### 4. Formatted I/O  P127
+## 4. Formatted I/O  P127
 
 ```C
 #include <stdio.h>
