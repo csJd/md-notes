@@ -54,7 +54,7 @@ All seven return: −1 on error, no return on success
 * 如果`filename`中包含`'/'`则视为路径名，否则按`PATH`环境变量指定的路径查找可执行文件
 * 命名规则：`l -> argList, v -> argv[], e -> envp[], p -> filename, f -> fd`
 
-![关系图](apue-c8-process-control-p1.png)
+![关系图](https://github.com/csJd/md-notes/raw/master/apue/apue-c8-process-control-p1.png)
 
 ```c
 #include <stdlib.h>
