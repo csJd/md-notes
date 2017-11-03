@@ -1,0 +1,77 @@
+#Week-1 Union Find
+
+* Course introduction (3:28). In the video, a video compression artifact has removed the path between the two nodes.
+* Course introduction (6:46). In the video, the link to the booksite should be http://algs4.cs.princeton.edu.
+* C ourse introduction (7:52). In the video, the link to the booksite should be http://introcs.cs.princeton.edu.
+* Quick-Find, slide 14. Find: return id of p.
+* Quick-Union, slide 23. Find: return root of p.
+* Quick-Union Improvements, slide 35. There are N = 11 nodes (and not 10).
+* Quick-Union Improvements, slide 35. The given tree could not have been created using weighted quick union.
+* Quick-Union Improvements (6:35). Video is missing semicolon with the statement int i = root(p).
+* Quick-Union Improvements (10:55). Video says "Ackermann function" instead of "inverse Ackermann function."
+* Mathematical Models, slide 28, 30, 32. Number of increments should be 1/2 N (N+1) to N^2.
+
+## M union-find operations on a set of N objects
+|algorithm|worst-case time|
+|---|---|
+|quick-find|M N|
+|quick-union|M N|
+|weighted QU|N + M log N|
+|QU + path compression|N + M log N|
+|weighted QU + path compressio|N + M lg* N|
+
+## My Implementation
+
+```java
+public class UnionFindSet {
+    private int[] id;
+
+    public UnionFindSet() { }
+
+    public UnionFindSet(int n) {
+        id = new int[n];
+        init();
+    }
+
+    public void init() {
+        for (int i : id) {
+            id[i] = -1;
+        }
+    }
+
+    private int findRoot(int i) {
+        return id[i] < 0 ? i : (id[i] = findRoot(id[i]));
+    }
+
+    public boolean connected(int i, int j) {
+        return findRoot(i) == findRoot(j);
+    }
+
+    public void merge(int i, int j) {
+        int ri = findRoot(i);
+        int rj = findRoot(j);
+        if(ri == rj) {
+            return;
+        }
+        if(id[ri] < id[rj]) {
+            id[ri] = id[ri] + id[rj];
+            id[rj] = ri;
+        } else {
+            id[rj] = id[ri] + id[rj];
+            id[ri] = rj;
+        }
+    }
+}
+
+```
+
+## Week1 Assessment : [Percolation](http://coursera.cs.princeton.edu/algs4/assignments/percolation.html)
+* 完成[Percolation类](https://github.com/csJd/learning-algs4/blob/master/src/Percolation.java)：利用`algs4`提供的`WeightedQuickUnionUF`类完成渗透检测，完成各个函数的实现
+* 完成[PercolationStats类](https://github.com/csJd/learning-algs4/blob/master/src/PercolationStats.java),输入n和trials，即在n*n的图上进行trials次随机试验，试验过程如下：
+    * 将图上所有的点设置为`blocked`
+    * 每次在图上随机选取一个点，对该点进行open操作，直到整个图发生渗透（有一个从最高处到最低处的连同块）
+    * 记录open点的个数
+    * 计算输出trails次试验的样本均值，样本标准差等统计量
+
+
+
