@@ -5,3 +5,6 @@
  - [第8章  进程控制](apue-c8-process-control.md)
  - [第11章 线程](apue-c11-threads.md)
  - [第15章 进程间通信](apue-c15-interprocess-communication.md)
+ - [课后习题1](quiz1.c)
+ - [课后习题2](quiz2.c)
+ - [课后习题3](quiz3.c)
