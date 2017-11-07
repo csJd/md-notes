@@ -26,7 +26,6 @@ int lstat(const char *pathname, struct stat *buf);
 Usage：`if (S_ISREG(buf.st_mode)) { // do something if the ralated file is regular file}`
 
 
-
 ## 3. 文件访问权限 P79
 
 * `st_mode`值包含了对文件的访问权限位，每个文件有9个访问权限位
@@ -63,7 +62,6 @@ int chown(const char *pathname, uid_t owner, git_t group);// returns: 0 if OK, �
 ```
 
 
-
 ## 5. 文件截断 P90
 * `truncate`函数将`pathname`指定的文件的长度截断为`length`
 * 若该文件的长度大于`length`，则超过`length`以外的数据不再能访问
@@ -72,7 +70,6 @@ int chown(const char *pathname, uid_t owner, git_t group);// returns: 0 if OK, �
 #include <unistd.h>
 int truncate(const char *pathname, off_t length); // returns: 0 if OK, -1 on error
 ```
-
 
 
 ## 6. `link` related P93
@@ -93,7 +90,6 @@ int symlink(const char *actualpath, const char *sympath); // P99
 #include <stdio.h>
 int rename(char *oldname, char *newname); // returns: 0 if OK, -1 on error
 ```
-
 
 
 ## 7. 文件的时间 P99
@@ -134,8 +130,7 @@ char *getcwd(char *buf, size_t size); // returns: buf if OK, NULL on error
 ```
 
 
-
-## 9. quiz1
+## 9. 课后习题1
 
 > 获取一个文件的权限
 > 

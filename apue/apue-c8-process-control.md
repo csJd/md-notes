@@ -15,7 +15,6 @@ pid_t fork(); // returns: 0 in child, process ID of child in parent, −1 on err
 * `vfork()`不复制父进程数据空间、堆和栈的副本，且保证子进程先运行，子进程共享父进程空间
 
 
-
 ## 2. `exit ` function P189
 
 * 5种正常终止方式，3种异常终止方式
@@ -34,7 +33,6 @@ pid_t waitpid(pid_t pid, int *statloc, int options);
 int waitid(idtype_t idtype, id_t, id, siginfo_t *infop, int options); // P194
 pid_t wait3(int *statloc, int options, struct rusage *rusage);
 ```
-
 
 
 ## 4. `exec` function P199
@@ -60,7 +58,6 @@ All seven return: −1 on error, no return on success
 #include <stdlib.h>
 int system(const char *cmdstring); //P264
 ```
-
 
 
 ## 5. Changing User IDs and Group IDs

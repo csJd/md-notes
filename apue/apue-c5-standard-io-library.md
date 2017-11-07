@@ -15,7 +15,6 @@ int setvbuf(FILE *fp, char *buf, int mode, size_t size);
 ```
 
 
-
 ## 2. 流和FILE对象 P119 
 
 * 标准输入，标准输出和标准错误
@@ -43,7 +42,6 @@ int fclose(FILE *fp); // returns: 0 if OK, EOF on error
 | `w+` or `w+b` or `wb+` | truncate to 0 length or create for reading and | O_RDWR\|O_CREAT\|O_TRUNC |
 
 
-
 ## 3. Reading and Writing a Stream  P120
 
 ```c
@@ -67,7 +65,6 @@ size_t fread(const void *ptr, size_t size, size_t nobj, FILE *fp);
 size_t fwrite(const void *ptr, size_t size, size_t nobj, FILE *fp);
 // both return: number of objects read or written
 ```
-
 
 
 ## 4. 定位流 P126
@@ -114,7 +111,7 @@ char *tmpnam(char *ptr); // returns: pointer to unique pathname
 FILE *tmpfile(); // returns: file pointer if OK, NULL on error
 ```
 
-##7. 课堂作业2
+## 7. 课堂作业2
 * `getopt`函数用来处理命令行选项 P536
 * `options`参数是一个包含该命令支持的选项字符的字符串，若选项字符后面接了一个冒号，则表示该选项需要参数，例：`cmd [-i] [-u username] [-z] filename`对应的`options`应为"iu:z"
 * 4个外部变量

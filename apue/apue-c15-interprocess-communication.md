@@ -24,7 +24,6 @@ if ((pid = fork()) > 0) { // parent
 ```
 
 
-
 # 2. FIFO P445 
 
 * FIFO是一种文件类型，有时也被成为命名管道，通过FIFO，不相关的进程也能交换数据
@@ -36,7 +35,6 @@ int mlfifo(const char *path, mode_t mode);
 int mkfifoat(int fd, const char *path, mode_t mode);
 // both return: 0 if OK, −1 on error
 ```
-
 
 
 # 3. 信号量 P455

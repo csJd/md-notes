@@ -13,7 +13,6 @@ pthread_t pthread_self(); // returns: the thread ID of the calling thread
 ```
 
 
-
 ## 2. 线程创建 P309
 
 * `pthread_create`函数创建一个线程，新线程从`start_routine`函数开始运行
@@ -27,7 +26,6 @@ pthread_t pthread_self(); // returns: the thread ID of the calling thread
 int pthread_create(pthread_t *tidp, const pthread_attr_t *attr, void *(*start_routine)(void *), void *arg);
 // returns: 0 if OK, error number on failure
 ```
-
 
 
 ## 3. 线程终止 P311
@@ -47,7 +45,6 @@ int pthread_join(pthread_t thread, void **retval); // returns: 0 if OK, error nu
 // 取消同一进程中的其他某一线程,被取消的线程可以忽略该取消 P316
 int pthread_cancel(pthread_t tid); // returns: 0 if OK, error number on failure
 ```
-
 
 
 ## 4. 线程同步 P320

@@ -16,9 +16,6 @@ int close(int fd); // returns: 0 if OK, −1 on error, p53
 * `mode` 参数指定新建文件的mode，若没有新建文件，忽略该参数
 
 
-
-
-
 ## 2. 设置偏移量 P53
 
 ```c
@@ -31,9 +28,6 @@ off_t lseek(int fd, off_t offset, int whence); // returns: new file offset if OK
 * `whence == SEEK_SET` ：将该文件的偏移量设置为`offset`
 * `whence == SEEK_CUR` ：将文件的偏移量设置为当前值加`offset`
 * `whence == SEEK_END` ：将该文件的偏移量设置为文件长度加`offset`
-
-
-
 
 
 ## 3. 读和写文件 P57
@@ -49,7 +43,6 @@ ssize_t read(int fd, void *buf, size_t count);
 ```
 
 
-
 ### 4. 复制现有的文件标识符 P63
 
 ```c
@@ -60,7 +53,6 @@ int dup2(int fd, int fd2); // 指定新文件描述符为fd2，若fd2已经打�
 dup(fd); 等效于 fcntl(fd, F_DUPFD, 0);
 dup(fd, fd2); 等效于 close(fd2); fcntl(fd, F_DUPFD, fd2);
 ```
-
 
 
 ### 5. 其他 P65
