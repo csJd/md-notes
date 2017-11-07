@@ -89,7 +89,9 @@ int pthread_cond_signal(pthread_cond_t *cond); //唤醒所有等待该条件的
 
 ## 5. 课堂作业
 > 用户不断从标准输入输入一个数N
+> 
 > 主线程得到N后，创建一个新线程计算total=total + N
+> 
 > 其中total是一个全局变量
 
 My Solution：

@@ -13,7 +13,6 @@ int lstat(const char *pathname, struct stat *buf);
 ```
 
 
-
 ## 2. 文件类型信息包含在`stat`结构的`st_mode`成员中 P76
 
 | Macro       | Type of file   |
@@ -23,6 +22,7 @@ int lstat(const char *pathname, struct stat *buf);
 | `S_ISLNK()` | symbolic link  |
 
 `#define S_ISDIR(mode) (((mode) & S_IFMT) == S_IFDIR) // pre defined in <sys/stat.h>`
+
 Usage：`if (S_ISREG(buf.st_mode)) { // do something if the ralated file is regular file}`
 
 
@@ -42,11 +42,11 @@ Usage：`if (S_ISREG(buf.st_mode)) { // do something if the ralated file is regu
 int access(const char *pathname, int mode); // mode: F_OK, R_OK, W_OK, X_OK
 int faccessat(int fd, const char *pathname, int mode, int flag); // both return: 0 if OK, -1 on error
 ```
+
 | mode   | 说明       | mode   | 说明     |
 | ------ | -------- | ------ | ------ |
 | `F_OK` | 测试文件是否存在 | `R_OK` | 测试读权限  |
 | `W_OK` | 测试写权限    | `X_OK` | 测试执行权限 |
-
 
 
 ## 4. `umask` and `chmod` related P83
@@ -54,6 +54,7 @@ int faccessat(int fd, const char *pathname, int mode, int flag); // both return:
 * `umask`函数为进程设置文件创建屏蔽字为cmask，并返回之前的值
 * `chmod`函数更改现有文件的访问权限为`mode`
 * `chown`函数更改文件的用户ID和组ID，新ID为-1则表示对应ID不变
+
 ```c
 #include <sys/stat.h>
 mode_t umask(mode_t cmask); // returns: previous file mode creation mask
@@ -98,16 +99,16 @@ int rename(char *oldname, char *newname); // returns: 0 if OK, -1 on error
 ## 7. 文件的时间 P99
 
 * `stat`结构对每个文件维护3个时间字段，字段类型为`struct timespec`
-| 字段      | 说明               | 例子          | ls(1)选项 |
+| 字段    | 说明              | 例子        | ls选项 |
 | ------- | ---------------- | ----------- | ------- |
 | st_atim | 文件数据的最后访问时间      | read        | -u      |
 | st_mtim | **文件数据**的最后修改时间  | write       | 默认      |
 | st_ctim | **i节点状态**的最后更改时间 | chmod,chown | -c      |
+
 * `futimens`函数可以更改文件的访问和修改时间，`times[0]`为访问时间，`times[1]`为修改时间
 ```c
 int futimens(int fd, timespec times[2]);
 ```
-
 
 
 ## 8. 目录相关 P103
@@ -117,6 +118,7 @@ int futimens(int fd, timespec times[2]);
 * `readdir`函数读目录，返回目录中第一个目录项到`dirent`结构中
 * `chdir`函数切换进程的当前工作目录，即相对路径名的起点
 * `getcwd`函数执行成功后，`buf`得到当前工作目录的绝对路径名
+
 ```c
 #include <sys/stat.h>
 int mkdir(char *pathname, mode_t mode); 
@@ -135,11 +137,17 @@ char *getcwd(char *buf, size_t size); // returns: buf if OK, NULL on error
 ## 9. quiz1
 
 > 获取一个文件的权限
+> 
 > $ ./myls
+> 
 > usage: myls somefile
+> 
 > $ ./myls a.txt
+> 
 > rwx
+> 
 > $ ./myls b.txt
+> 
 > r-x
 
 My solution：
