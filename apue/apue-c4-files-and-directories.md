@@ -29,6 +29,7 @@ Usage：`if (S_ISREG(buf.st_mode)) { // do something if the ralated file is regu
 ## 3. 文件访问权限 P79
 
 * `st_mode`值包含了对文件的访问权限位，每个文件有9个访问权限位
+
 | `st_mode` mask | Meaning       |
 | -------------- | ------------- |
 | `S_IRUSR`      | user-read     |
