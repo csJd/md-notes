@@ -18,7 +18,7 @@ man git help
 | HEAD^ (HEAD~1) | parent of HEAD                       |
 | HEAD~4         | the great-great grandparent of HEAD  |
 
-```sh
+```shell
 git blame $file # Who changed what and when in a file
 git show $id[:$file] # A commit identified by $ID [about a specific file]
 
