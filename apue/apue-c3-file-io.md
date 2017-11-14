@@ -43,7 +43,7 @@ ssize_t read(int fd, void *buf, size_t count);
 ```
 
 
-### 4. 复制现有的文件标识符 P63
+## 4. 复制现有的文件标识符 P63
 
 ```c
 #include <unistd.h>
@@ -55,7 +55,7 @@ dup(fd, fd2); 等效于 close(fd2); fcntl(fd, F_DUPFD, fd2);
 ```
 
 
-### 5. 其他 P65
+## 5. 其他 P65
 
 ```c
 #include <fcntl.h>
