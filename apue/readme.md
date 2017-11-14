@@ -8,6 +8,7 @@
  - [第10章 信号](apue-c10-signals.md)
  - [第11章 线程](apue-c11-threads.md)
  - [第15章 进程间通信](apue-c15-interprocess-communication.md)
+ - [第16章 网络IPC：套接字](apue-c16-network-ipc-sockets.md)
  - [课后习题1](quiz1.c)
  - [课后习题2](quiz2.c)
  - [课后习题3](quiz3.c)
