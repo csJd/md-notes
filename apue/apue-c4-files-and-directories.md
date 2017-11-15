@@ -63,10 +63,10 @@ int chown(const char *pathname, uid_t owner, git_t group);// returns: 0 if OK, �
 ```
 
 
-## 5. 文件截断 P90
-* `truncate`函数将`pathname`指定的文件的长度截断为`length`
+## 5. 文件截短 P90
+* `truncate`函数将`pathname`指定的文件的长度截短为`length`
 * 若该文件的长度大于`length`，则超过`length`以外的数据不再能访问
-* 若该文件的长度效于`length`，则新旧尾端之间的数据将读作0
+* 若该文件的长度小于`length`，则新旧尾端之间的数据将读作0
 ```c
 #include <unistd.h>
 int truncate(const char *pathname, off_t length); // returns: 0 if OK, -1 on error
@@ -97,11 +97,11 @@ int rename(char *oldname, char *newname); // returns: 0 if OK, -1 on error
 
 * `stat`结构对每个文件维护3个时间字段，字段类型为`struct timespec`（旧版标准为`struct time_t st_atime, st_mtime, st_ctime`）
 
-| 字段    | 说明              | 例子        | ls选项 |
-| ------- | ---------------- | ----------- | ------- |
-| st_atim | 文件数据的最后访问时间      | read        | -u      |
-| st_mtim | **文件数据**的最后修改时间  | write       | 默认      |
-| st_ctim | **i节点状态**的最后更改时间 | chmod,chown | -c      |
+| 字段      | 说明               | 例子          | ls选项 |
+| ------- | ---------------- | ----------- | ---- |
+| st_atim | 文件数据的最后访问时间      | read        | -u   |
+| st_mtim | **文件数据**的最后修改时间  | write       | 默认   |
+| st_ctim | **i节点状态**的最后更改时间 | chmod,chown | -c   |
 
 * `futimens`, `utimensat`和`utimes`函数可以更改文件的访问和修改时间（旧版`time_t`格式则使用`utime`函数），`times[0]`为访问时间，`times[1]`为修改时间
 ```c
@@ -141,17 +141,17 @@ char *getcwd(char *buf, size_t size); // returns: buf if OK, NULL on error
 ## 9. 课后习题1
 
 > 获取一个文件的权限
-> 
+>
 > $ ./myls
-> 
+>
 > usage: myls somefile
-> 
+>
 > $ ./myls a.txt
-> 
+>
 > rwx
-> 
+>
 > $ ./myls b.txt
-> 
+>
 > r-x
 
 My solution：

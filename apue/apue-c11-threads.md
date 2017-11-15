@@ -9,7 +9,6 @@
 // 判断线程id相等不能用`tid1 == tid2`
 int pthread_equal(pthread_t tid1, pthread_t tid2); // returns: nonzero if equal, 0 otherwise
 pthread_t pthread_self(); // returns: the thread ID of the calling thread
-
 ```
 
 
@@ -33,16 +32,14 @@ int pthread_create(pthread_t *tidp, const pthread_attr_t *attr, void *(*start_ro
 > 如果进程中的任意线程调用了`exit`、`_exit`或`_Exit`，整个进程就会终止。
 
 * 单个线程有3种退出方式：从启动例程返回、被同一进程的其他线程取消、线程调用`pthread_exit`
+* `pthread_exit`函数退出一个线程，`retval`为传给启动例程的指针，进程中的其他线程可以通过调用`pthread_join`函数访问这个指针
+* 调用`pthread_join`的线程将一直阻塞，直到`thread`指定的线程退出
+* `pthread_cancel`取消同一进程中的其他某一线程,被取消的线程可以忽略该取消 P316
 
 ```c
 #include <pthread.h>
-// retval为传给启动例程的指针，进程中的其他线程可以通过调用 pthread_join 函数访问这个指针
 void pthread_exit(void *retval);
-
-// 调用pthread_join的线程将一直阻塞，直到thread指定的线程退出
 int pthread_join(pthread_t thread, void **retval); // returns: 0 if OK, error number on failure
-
-// 取消同一进程中的其他某一线程,被取消的线程可以忽略该取消 P316
 int pthread_cancel(pthread_t tid); // returns: 0 if OK, error number on failure
 ```
 
@@ -51,24 +48,16 @@ int pthread_cancel(pthread_t tid); // returns: 0 if OK, error number on failure
 
 * pthread 提供使用互斥量的互斥接口
 * 互斥变量用`pthread_mutex_t`数据类型表示，使用之前必须对它进行初始化
-
-```c
-#include <pthread.h>
-// 对 mutex 指向的互斥量进行初始化，用默认的属性初始化只需把 attr 设为 NULL
-int pthread_mutex_init(pthread_mutex_t *mutex, const pthread_mutexattr_t *attr);
-int pthread_mutex_destroy(pthread_mutex_t *mutex); 
-// both return: 0 if OK, error number on failure
-
-// 也可以静态分配互斥量
-pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
-```
-
+* `pthread_mutex_init`函数对`mutex`指向的互斥量进行初始化，用默认的属性初始化只需把`attr`设为`NULL`
 * 可以调用`pthread_mutex_lock`对互斥量加锁，如果互斥量已经上锁，调用线程将阻塞直到互斥量被解锁
 
 ```c
+#include <pthread.h>
+int pthread_mutex_init(pthread_mutex_t *mutex, const pthread_mutexattr_t *attr);
+int pthread_mutex_destroy(pthread_mutex_t *mutex); // both return: 0 if OK, error number on failure
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER; // 也可以直接赋值初始化静态分配的互斥量
 int pthread_mutex_lock(pthread_mutex_t *mutex);
-int pthread_mutex_unlock(pthread_mutex_t *mutex);
-// both return: 0 if OK, error number on failure
+int pthread_mutex_unlock(pthread_mutex_t *mutex); // both return: 0 if OK, error number on failure
 ```
 
 * 条件变量用`pthread_cond_t`数据类型表示，类似互斥变量，使用前也必须初始化 **P332**

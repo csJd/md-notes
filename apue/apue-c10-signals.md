@@ -30,9 +30,9 @@ int pause(void); // returns: −1 with errno set to EINTR
 ## 2. 信号集和信号屏蔽字
 
 * `sigset_t`结构表示信号集 P273
-* `sigprocmask`函数可以检测或更改进程的信号屏蔽字 P275
+* `sigprocmask`函数可以检测或更改进程的信号屏蔽字，若`oset != NULL`，将进程的当前信号屏蔽字写入`oset`指向的信号集，否则`how`指定如何修改当前信号屏蔽字 P275
 * `sigpending`函数通过`set`参数返回一信号集，对于调用进程而言，这些信号 are blocked from delivery and currently pending
-* `sigacton`函数检查或修改与指定信号相关联的处理动作 P278
+* `sigaction`函数检查或修改与指定信号相关联的处理动作 P278
 * `sigsetjmp`和`siglongjmp`实现非局部转移并保存信号屏蔽字
 * `sigsuspend`函数在一个原子操作中先恢复信号屏蔽字然后使进程休眠 P286
 

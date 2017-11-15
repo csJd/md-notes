@@ -56,7 +56,7 @@ char *fgets(char *buf, int n, FILE *fp);
 int fputs(const char *str, FILE *fp); // writes the null-terminated string to the specified stream, without the null byte
 ```
 
->We should always use fgets and fputs, and we always have to deal with the newline haracter at the end of each line.
+>We should always use fgets and fputs, and we always have to deal with the newline character at the end of each line.
 
 * 二进制I/O，`fwrite`从`ptr`写入`nobj`个大小为`size`的元素写到`fp`指定的流  P125
 
@@ -117,7 +117,7 @@ FILE *tmpfile(); // returns: file pointer if OK, NULL on error
 * 4个外部变量
     * `optarg`，如果一个选项需要参数，在处理该选项时，`getopt`会设置`optarg`指向该选项的参数字符串
     * `opterr`，如果一个选项发生了错误，`getopt`会默认打印一条出错消息吗，将`opterr`设置为0可以禁止这个行为
-    * `optind`，用来存放下一个要处理的字符串在`argv`数组里的下标，它从1开始，每处理一个参数，`getopt`会对其递增1
+    * `optind`，用来存放下一个要处理的非选项参数在`argv`数组里的下标，它从1开始，每处理一个参数，`getopt`会对其增量
     * `optopt`，如果处理选项时发生了错误，`getopt`会设置`optopt`指向导致出错的选项字符串
 
 ```c
