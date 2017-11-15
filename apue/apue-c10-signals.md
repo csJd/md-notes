@@ -1,8 +1,9 @@
 # 第10章 信号 P249
 
 ## 1. 信号
-* 信号是软件中断，每个信号都有一个名字（*signo*），这些名字都以`SIG`开头，见P251表
+* 信号是软件中断，每个信号都有一个名字（*signo*），这些名字都以`SIG`开头，`Ctrl+C`: SIGINT, `Ctrl+\`: SIGQUIT 见P251表
 * 函数`signal` P256
+ > signal() sets the disposition of the signal signum to handler, which is either SIG_IGN, SIG_DFL, or the address of a programmer-defined function (a "signal handler").
 * `kill`函数给`pid`指定的进程或进程组发送`signo`信号，`raise`函数给进程自身发送信号 P267
 * `alarm`函数在`seconds`秒后产生`SIGALRM`信号，如果忽略此信号（不捕捉），则默认终止调用alarm的进程
 * `pause`函数使调用进程挂起直至捕捉到一个信号
@@ -14,7 +15,7 @@
 void (*signal(int signo, void (*func)(int)))(int);
 // returns: previous disposition of signal (see following) if OK, SIG_ERR on error
 typedef void Sigfunc(int); // 使用typedef对signal函数改写
-Sigfunc *signal(int, Sigfunc *);
+Sigfunc *signal(int signum, Sigfunc *handler);
 
 int kill(pid_t pid, int signo); // P267
 int raise(int signo); // both return: 0 if OK, −1 on error

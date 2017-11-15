@@ -95,7 +95,7 @@ int rename(char *oldname, char *newname); // returns: 0 if OK, -1 on error
 
 ## 7. 文件的时间 P99
 
-* `stat`结构对每个文件维护3个时间字段，字段类型为`struct timespec`
+* `stat`结构对每个文件维护3个时间字段，字段类型为`struct timespec`（旧版标准为`struct time_t st_atime, st_mtime, st_ctime`）
 
 | 字段    | 说明              | 例子        | ls选项 |
 | ------- | ---------------- | ----------- | ------- |
@@ -103,9 +103,16 @@ int rename(char *oldname, char *newname); // returns: 0 if OK, -1 on error
 | st_mtim | **文件数据**的最后修改时间  | write       | 默认      |
 | st_ctim | **i节点状态**的最后更改时间 | chmod,chown | -c      |
 
-* `futimens`函数可以更改文件的访问和修改时间，`times[0]`为访问时间，`times[1]`为修改时间
+* `futimens`, `utimensat`和`utimes`函数可以更改文件的访问和修改时间（旧版`time_t`格式则使用`utime`函数），`times[0]`为访问时间，`times[1]`为修改时间
 ```c
-int futimens(int fd, timespec times[2]);
+#include <sys/stat.h>
+int futimens(int fd, struct timespec times[2]);
+int utimensat(int fd, char *path, struct timespec times[2], int flag);
+#include <sys/time.h>
+int utimes(char *pathname, struct timeval times[2]); 
+#include <utime.h>
+int utime(char *pathname, struct utimbuf *times); // times->actime, times->modtime
+// all return: 0 if OK, −1 on error
 ```
 
 

@@ -96,10 +96,11 @@ My Solution：
 ```c
 #include <stdio.h>
 #include <pthread.h>
+#include <unistd.h> // for sleep
 
 // pthread_mutex_t mutex
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
-int total;
+int total = 0;
 
 void *run(void *arg)
 {
@@ -117,9 +118,9 @@ int main()
     {
         pthread_create(&tid, NULL, run, (void *)n);
     }
-    pthread_mutex_lock(&mutex);
+    sleep(1);
     printf("the total is %d\n", total);
-    pthread_mutex_unlock(&mutex);
+    pthread_mutex_destroy(&mutex);
 
     return 0;
 }
