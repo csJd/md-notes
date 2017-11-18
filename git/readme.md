@@ -34,3 +34,11 @@ git grep "foo()" # Search working directory for foo()
 git tag v1.0 # Mark a version/milestone
 ```
 
+### Github related
+* [Download a single folder or directory from a GitHub repo](https://stackoverflow.com/questions/7106012/download-a-single-folder-or-directory-from-a-github-repo/)
+
+```sh
+svn ls https://github.com/csJd/csJd.github.io/branches/master
+svn ls https://github.com/csJd/csJd.github.io/branches/hexo/scaffolds
+svn co https://github.com/csJd/csJd.github.io/branches/hexo/scaffolds
+```
