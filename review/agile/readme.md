@@ -69,10 +69,10 @@ Scrum的[5个价值观](http://www.scrumcn.com/agile/scrum-knowledge-library/scr
 
 敏捷度量：项目是否成功取决于主观的判断，不能度量就不能管理  
 Value is what stakeholders expect from your project，Value度量组成：  
-  User 40%：Feature importance 70%, Featrue frequency of use 30%  
-  Sponsor 30%: Revenue generation 50%, Customer experience 50%  
-  Organization 20%: Somplicity 60%, Compliance 40%  
-  Team 10%: Skills development 100%  
+  User 40%  ： Feature importance 70%, Featrue frequency of use 30%  
+  Sponsor 30%  : Revenue generation 50%, Customer experience 50%  
+  Organization 20%  : Somplicity 60%, Compliance 40%  
+  Team 10%  : Skills development 100%  
 
 ### 5.  敏捷的角色、工件、仪式各有哪些？
 #### 敏捷的角色 (Scrum Roles) 1P55
@@ -134,9 +134,9 @@ An artifact is a useful object created by people
 
 2. 整理产品特性（功能features） 
   
-  |主要功能|产品特征|
-  |---|---|
-  |  |  |
+|主要功能|产品特征|
+|---|---|
+|  |  |
 
   实例：移动银行应用
   特性：账户管理、交易管理、客服管理
@@ -149,9 +149,9 @@ An artifact is a useful object created by people
 
 3. 产品特性的估算和排序  
   
-  |主要功能|产品特性|价值|工作量|相对优先级|
-  |---|---|---|---|---|
-  |   |   |   |   |   |
+|主要功能|产品特性|价值|工作量|相对优先级|
+|---|---|---|---|---|
+|   |   |   |   |   |
 
   * 目的：确定核心需求，识别需求差异  
   * 给需求价值和工作量打分，或价值打分、工作量打分    
