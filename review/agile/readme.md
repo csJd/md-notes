@@ -58,7 +58,8 @@ Product backlog -> Sprint backlog -> Sprint -> Sprint results -> ·
 
 ### 4.  敏捷核心价值观是什么? 什么是敏捷度量？ 1P65
 
-敏捷宣言4个价值观  
+敏捷宣言4个价值观
+
 Scrum的[5个价值观](http://www.scrumcn.com/agile/scrum-knowledge-library/scrum.html)：承诺、专注、开放、尊重、勇气
 * 承诺(Commitment) – 愿意对目标做出承诺
 * 专注(Focus) – 把你的心思和能力都用到你承诺的工作上去
@@ -67,8 +68,11 @@ Scrum的[5个价值观](http://www.scrumcn.com/agile/scrum-knowledge-library/scr
 * 勇气(Courage) – 有勇气做出承诺，履行承诺，接受别人的尊重  
 
 敏捷度量：项目是否成功取决于主观的判断，不能度量就不能管理  
-Value is what stakeholders expect from your project，Value度量组成：
-![](value.png)
+Value is what stakeholders expect from your project，Value度量组成：  
+  User 40%：Feature importance 70%, Featrue frequency of use 30%  
+  Sponsor 30%: Revenue generation 50%, Customer experience 50%  
+  Organization 20%: Somplicity 60%, Compliance 40%  
+  Team 10%: Skills development 100%  
 
 ### 5.  敏捷的角色、工件、仪式各有哪些？
 #### 敏捷的角色 (Scrum Roles) 1P55
@@ -128,9 +132,13 @@ An artifact is a useful object created by people
   通过愿景声明，确定需求的**主题**——是最高层次的需求  
   分析需求主题的**特性**，即拆分为具有若干特性的需求
 
-2. 整理产品特性（功能features）  
-  实例
-  主题：移动银行应用
+2. 整理产品特性（功能features） 
+  
+  |主要功能|产品特征|
+  |---|---|
+  |  |  |
+
+  实例：移动银行应用
   特性：账户管理、交易管理、客服管理
   史诗故事：
     * 账户信息：登录验证、VIP、个人信息修改  
@@ -140,6 +148,11 @@ An artifact is a useful object created by people
   任务：登录验证：输入用户名/账号，输入密码…  
 
 3. 产品特性的估算和排序  
+  
+  |主要功能|产品特性|价值|工作量|相对优先级|
+  |---|---|---|---|---|
+  |   |   |   |   |   |
+
   目的：确定核心需求，识别需求差异  
   给需求价值和工作量打分，或价值打分、工作量打分    
   可以用两组人分别打分：  
@@ -197,8 +210,7 @@ An artifact is a useful object created by people
 #### 创建Product Backlog 2P32
 优先级 = 价值 / 工作量，确定哪些需求可以合并为一个可靠的发布  
 Product Backlog是指确定了需求优先级的用户故事列表，例：
-![](pb.png)
-发布目标：完成核心业务，即作为<前台客服>，我希望<建立和删除一个客户，能为客户办理一项套餐业务>,以便于<完成客户的增删和基本业务>
+![](pb.png)  
 
 #### 创建Sprint Backlog 2P41
 ![](sprint_backlog0.png)
