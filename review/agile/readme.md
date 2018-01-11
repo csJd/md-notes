@@ -54,22 +54,29 @@
 
 ### 3.  画出Scrum敏捷开发的框架 1P52
 ![scrum framework](scrum_framework.png)
-Product backlog -> Sprint backlog -> Sprint -> Sprint results -> Sprint review -> ·
+Product backlog -> Sprint backlog -> Sprint -> Sprint results -> ·  
 
 ### 4.  敏捷核心价值观是什么? 什么是敏捷度量？ 1P65
 
-敏捷宣言4个核心价值观  
+敏捷宣言4个价值观  
+Scrum的[5个价值观](http://www.scrumcn.com/agile/scrum-knowledge-library/scrum.html)：承诺、专注、开放、尊重、勇气
+* 承诺(Commitment) – 愿意对目标做出承诺
+* 专注(Focus) – 把你的心思和能力都用到你承诺的工作上去
+* 开放(Openness) – Scrum 把项目中的一切开放给每个人看
+* 尊重(Respect) – 每个人都有他独特的背景和经验
+* 勇气(Courage) – 有勇气做出承诺，履行承诺，接受别人的尊重
 敏捷度量：项目是否成功取决于主观的判断，不能度量就不能管理  
-Value is what stakeholders expect from your project
+Value is what stakeholders expect from your project，Value度量组成：
+![](value.png)
 
 ### 5.  敏捷的角色、工件、仪式各有哪些？
 #### 敏捷的角色 (Scrum Roles) 1P55
 
-* Product owner （产品负责人）: The person responsible for the business value of the project and for deciding what work to do and in what order, as documented in the product backlog.
-* ScrumMaster （Scrum 主管）: The person who ensures that the team is productive, facilitates the daily Scrum, enables close cooperation across all roles and functions, and removes barriers that prevent the team from being effective.
+* Product Owner （产品负责人）: The person responsible for the business value of the project and for deciding what work to do and in what order, as documented in the product backlog.
+* Scrum Master （Scrum 主管）: The person who ensures that the team is productive, facilitates the daily Scrum, enables close cooperation across all roles and functions, and removes barriers that prevent the team from being effective.
 * Scrum team or development team （开发团队）: A cross-functional team of five to nine people who organize themselves and the work to produce the desired results for each sprint, which normally lasts 2-4 weeks.
-* Stakeholder
-* Agile Mentor
+* Stakeholder（干系人）： Stakeholders are the people involved in or affected by project activities.
+* Agile Mentor（敏捷导师）： 熟悉敏捷开发模式及敏捷实施流程的人员。
 
 #### 工件 (Scrum Artifacts) 1P59
 
@@ -85,7 +92,7 @@ An artifact is a useful object created by people
 * Sprint planning session（冲刺计划会议）: A meeting with the team to select a set of work from the product backlog to deliver during a sprint.
 * Daily Scrum（每日例会）: A short meeting for the development team to share progress and challenges and plan work for the day.
 * Sprint reviews（冲刺评审会议）: A meeting in which the team demonstrates to the stakeholders and product owner what it has completed during the sprint.
-* Sprint retrospectives（冲刺回顾）: A meeting in which the team looks for ways to improve the product and the process based on a review of the actual performance of the development team.
+* Sprint retrospectives（冲刺回顾会议）: A meeting in which the team looks for ways to improve the product and the process based on a review of the actual performance of the development team.
 
 ### 6.  理解主要的敏捷软件开发框架：XP、ASD、FDD、TDD、AUP等  1P42/A3
 * XP [eXetreme Programming](https://en.wikipedia.org/wiki/Extreme_programming) 极限编程 1P43
@@ -114,12 +121,41 @@ An artifact is a useful object created by people
 
 #### 产品路线图 [Product Roadmap](https://www.productplan.com/what-is-a-product-roadmap/) 2P9
 产品路线图是指产品需求的综合提示图，是产品需求的概览，也是组织开发过程的工具  
-创建产品路线图的步骤：
-1. 识别产品需求
-2. 整理产品特性（功能features）
-3. 产品特性的估算和排序
-4. 决定大致的时间框架
+创建产品路线图的步骤： 
 
+1. 识别产品需求（即产品需求分解的过程）
+  通过愿景声明，确定需求的**主题**——是最高层次的需求  
+  分析需求主题的**特性**，即拆分为具有若干特性的需求
+
+2. 整理产品特性（功能features）
+实例
+主题：移动银行应用
+特性：账户管理、交易管理、客服管理
+史诗故事：
+  * 账户信息：登录验证、VIP、个人信息修改
+  * 交易管理：支付、账单管理
+  * 客服功能：查询余额、理财、自动付款
+用户故事：登录验证、VIP、个人信息修改、支付、账单管理、查询余额、理财、自动付款
+任务：登录验证：输入用户名/账号，输入密码…
+
+3. 产品特性的估算和排序
+目的：确定核心需求，识别需求差异  
+给需求价值和工作量打分，或价值打分、工作量打分  
+可以用两组人分别打分：  
+  * 产品负责人和客户及干系人为需求价值打分
+  * 开发团队为需求工作量打分
+用Fibonacci数列作为分值： 用相对分数  
+  * 产品路线图的需求：分数在55—144 （主题、特性）
+  * 发布计划的需求：分数在13—34 （史诗故事）
+  * 冲刺计划的需求：分数在1—8 （用户故事）
+确定需求之间的依赖关系
+计算相对优先级：可以帮助产品负责人对需求优先级排序，相对优先级=价值/工作量
+
+4. 决定大致的时间框架
+根据产品特性的相对优先级排序，创建产品路线图  
+优先级高的排在完成时间的前面  
+当确定了产品路线图，可以确定产品发布时间  
+根据产品发布的优先级，确定大致的产品迭代时间增量  
   ![](roadmap.png)
 
 ### 8.  敏捷工作实践中如何创建用户故事和估算用户故事？ 2P19
@@ -167,7 +203,22 @@ Product Backlog是指确定了需求优先级的用户故事列表，例：
 Sprint Backlog 分解用户故事为任务
 ![](sprint_backlog0.png)
 ![](sprint_backlog1.png)
-![](sprint_backlog2.png)
+
+#### Sprint Backlog示例：分解用户故事为任务  
+目标：作为一名移动银行客户，我想要登录我的账号，以便查看我的账户余额，正在处理的交易、和历史交易记录  
+选择的用户故事：
+  1. 登录和访问我的账户；
+  2. 查看账户余额；
+  3. 查看正在处理的交易；
+  4. 查看先前的交易
+登录和访问我的账户的任务分解：
+  1. 设计有用户名和密码的登录验证界面，含“提交”按钮
+  2. 登录错误时的重新登录界面，含“错误”提示
+  3. 登录界面
+  4. 创建数据库调用，用于验证用户名和密码
+  5. 为移动设备重构代码
+冲刺时长：10个工作日，其中9天开发，半天计划，半天评审和回顾（两周）  
+参加人数：6人，每人每天开发时间7小时，则总开发时间=9x7x6=378人时  
 
 ### 10. 什么是冲刺？冲刺的主要工作有哪些？ 2P38
 冲刺：指一次迭代，并提交能够正常工作的产品。一个冲刺的工作：
