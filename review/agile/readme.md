@@ -5,10 +5,10 @@
 
 ### 1.  敏捷开发的[宣言](http://agilemanifesto.org/iso/en/manifesto.html)是什么？ 1P29
 > We are uncovering better ways of developing software by doing it and helping others do it. Through this work we have come to value:  
->  ** Individuals and interactions ** over processes and tools  
->  ** Working software ** over comprehensive documentation  
->  ** Customer collaboration ** over contract negotiation  
->  ** Responding to change ** over following a plan  
+>  Individuals and interactions over processes and tools  
+>  Working software over comprehensive documentation  
+>  Customer collaboration over contract negotiation  
+>  Responding to change over following a plan  
 > That is, while there is value in the items on the right, we value the items on the left more.  
 
 > 我们一直在实践中探寻更好的软件开发方法，身体力行的同时也帮助他人。由此我们建立了如下价值观：  
@@ -273,7 +273,15 @@ Product Backlog是指确定了需求优先级的用户故事列表，例：
 **项目管理**是运用管理的知识、工具、和技术于项目活动上，来达成解决项目的问题或达成项目的需求。  
 传统项目管理的知识领域：集成、范围、时间、成本、质量、人力资源、沟通、风险、采购、干系人  
 
-### 16. 项目成本管理的方法？ 3P17
+### 16. 项目成本管理的方法？ Cost
+* 估算成本是对完成项目活动所需资金进行近似估算的过程。根据已知信息所做出的成本预测。
+* 估算成本过程包括：
+  1. 识别可用于启动与完成项目的可替代成本方案；即都有哪些备选方案
+  2. 考虑、权衡备选成本方案和风险，例如：
+    * 比较自制成本与外购成本、
+    * 购买成本与租赁成本
+    * 多种资源共享方案—是否能够共享开发人员？
+  3. 优化项目成本：与开发方案共同讨论，找出优化的方案
 
 * 要估算的成本有：花费在项目上的全部资源，包括（但不限于）人工、材料、设备、服务、设施，以及一些特殊的成本种类，如通货膨胀补贴、融资成本或应急成本。
 * 随着项目信息越来越明确，可以动用、减少或取消应急储备。
@@ -284,3 +292,13 @@ Product Backlog是指确定了需求优先级的用户故事列表，例：
 无论是传统项目管理还是敏捷项目管理，财务管理都是核心   
 财务计划方法：NPV，ROI，Payback，盈亏平衡点等计算和分析    
 财务监控方法：EVM（Earned Value Management）--监控成本/进度  
+
+### Assignments Q&A
+* 需求分析的工具: 用例图、业务时序图等如何运用到敏捷开发的产品路线图和发布计划？
+ 用例图和业务时序图是描述需求的工具，在敏捷开发的产品路线图过程中，可以作为识别产品需求、整理产品特征的辅助工具，在发布计划过程中，可以作为 细化需求、创建用户故事的辅助工具；
+
+* 如何提高用户故事分解的效率，是否应该团队成员协商共同完成?
+ PPT上有拆分用户故事，为提高用户故事的分解效率，应该团队成员协同完成，因为用户故事的分解是创建Product backlog的重要准备工作，与开发任务分配有着密切的关系，所以要由团队成员共同完成；
+
+* 请假、加班、添加或删除任务如何填写燃尽图？
+ 单纯的燃尽图只反映Sprint Backlog 中任务的完成进展情况，与开发人员是否请假或加班无关，但是如果请假影响了进度，燃尽图能反映出来，就需要srcum主管介入并解决进度推后的问题。如果有任务增加或删除，Sprint Backlog会有变化（可以是第二版），要有对应新版本Sprint Backlog的燃尽图。
