@@ -2,6 +2,5 @@
 ## MENU:
  - [Advanced Programming in Unix Environment 3ed.](apue)
  - [Algorithms 4 ed.](algs4)
- - [Git related](git)
- - [Conda related](conda)
-
+ - [Cheat Sheet](cheatsheet)
+ - [Review](review)
