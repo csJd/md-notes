@@ -18,6 +18,8 @@ man git help
 | HEAD~4         | the great-great grandparent of HEAD  |
 
 ```shell
+git clone -b branch repo_addr  # Clone specific branch of a repo
+
 git blame $file # Who changed what and when in a file
 git show $id[:$file] # A commit identified by $ID [about a specific file]
 
