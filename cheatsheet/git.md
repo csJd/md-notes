@@ -42,7 +42,8 @@ git tag v1.0 # Mark a version/milestone
 ```sh
 svn ls https://github.com/csJd/csJd.github.io/branches/master
 svn ls https://github.com/csJd/csJd.github.io/branches/hexo/scaffolds
-svn co https://github.com/csJd/csJd.github.io/branches/hexo/scaffolds
+svn co https://github.com/csJd/csJd.github.io/branches/hexo/scaffolds # with .svn folder
+svn export https://github.com/csJd/csJd.github.io/branches/hexo/scaffolds # without .svn
 ```
 
 # My Frequently Forgotten Facts (FFFs)
