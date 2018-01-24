@@ -9,7 +9,7 @@ rsync -a source_dir/ dest_dir/  # Copy directories recursively use rsync
 ls [-a --all] [-t --time] [-S --size] [-l]  # list [all] by time/size in long format
 
 find . -name "*log*" # Find all files in the current (.) directory and its subdirectories with log in their name
-locate "*log*""  # Quick system-wide file search by pattern
+locate "*log*"  # Quick system-wide file search by pattern
 
 tar zcvf archive.tar.gz dir  # Create a compressed archive (z:gzip, j:bzip2, J:xz)
 tar tvf archive.tar.[gz|bz2|lzma|xz] # Test (list) a compressed archive
