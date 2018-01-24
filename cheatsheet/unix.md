@@ -14,6 +14,11 @@ locate "*log*"  # Quick system-wide file search by pattern
 tar zcvf archive.tar.gz dir  # Create a compressed archive (z:gzip, j:bzip2, J:xz)
 tar tvf archive.tar.[gz|bz2|lzma|xz] # Test (list) a compressed archive
 tar xvf archive.tar.[gz|bz2|lzma|xz] # Extract the contents of a compressed archive
+# -h,--dereference : follow symlinks, archive and dump the files they point to
+
+wc file # (word count) Number of bytes, words and lines in file
+du -sh dir1 file1 # (disk usage) Show the total size on disk of files or directories 
+df -h . # Show the size, total space and free space of the current partition
 ```
 
 ### Job control
@@ -29,5 +34,12 @@ kill -9 -1 # Kill all processes (at least all user ones)
 ```sh
 adduser username # Add a new user
 adduser user group # Add user to group
-sudo chown -R newuser.newgroup dir #
+groups user # Show which groups user belongs to
+finger user # Tell more information about user
+sudo chown -R newuser.newgroup dir # Change the owner and group of a directory and all its contents
+
+sudo mount /dev/uba1 /mnt/usbdisk # Mount a formatted partition
+sudo umount /mnt/usbdisk  # Unmount a filesystem
+
+uname -a  # Check the system kernel version
 ```
