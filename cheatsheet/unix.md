@@ -61,3 +61,7 @@ df -h # filesystem and usage
 
 lspci | grep -i vga # vga card info
 ```
+
+
+### Tmux
+[Online](http://blog.csdn.net/robertbaker/article/details/42172203)
