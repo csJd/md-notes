@@ -66,3 +66,12 @@ lspci | grep -i vga  # vga card info
 
 ### Tmux
 [Online](http://blog.csdn.net/robertbaker/article/details/42172203)
+[Usage0](https://linux.cn/article-3952-1.html)
+[Usage1](https://www.cnblogs.com/bamanzi/p/tmux-mouse-tips.html)
+[Usage2](http://blog.csdn.net/skykingf/article/details/46345057)
+```
+<prefix> z  # Make current pane full-screen
+<prefix> x  # Kill the current pane
+<prefix> c  # Create a new window
+<prefix> d  # Detach the current client
+```
