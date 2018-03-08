@@ -41,5 +41,23 @@ sudo chown -R newuser.newgroup dir # Change the owner and group of a directory a
 sudo mount /dev/uba1 /mnt/usbdisk # Mount a formatted partition
 sudo umount /mnt/usbdisk  # Unmount a filesystem
 
+du -h # report file system disk space usage
+df -h # estimate file space usage, -h: print sizes in human readable format
+
 uname -a  # Check the system kernel version
+```
+
+### Hardware info
+```
+lshw -short # list hardware
+
+cat /proc/meminfo
+free -h # Display amount of free and used memory in the system
+
+cat /proc/cpuinfo
+lscpu # display information about the CPU architecture
+
+df -h # filesystem and usage
+
+lspci | grep -i vga # vga card info
 ```
