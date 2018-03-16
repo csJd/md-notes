@@ -10,6 +10,10 @@
 
 [somthing about strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/)
 
+`. script.sh` and `source script.sh` exec in current shell
+
+`./script.sh`, `sh script.sh` and `bash script.sh` exec in sub shell
+
 ```sh
 #!/bin/bash
 
