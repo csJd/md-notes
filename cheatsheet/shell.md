@@ -1,11 +1,14 @@
 # MY SHELL SCRIPTING CHEAT SHEET
 
 [Online here](https://devhints.io/bash)
+
 [vbird here](http://linux.vbird.org/linux_basic/0340bashshell-scripts.php)
 
 
 ### Basic
 [some differences between expressions](https://stackoverflow.com/questions/18135451/what-is-the-difference-between-var-var-and-var-in-the-bash-shell)
+
+[somthing about strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/)
 
 ```sh
 #!/bin/bash
@@ -27,6 +30,10 @@ git commit && git push
 # shell execution
 echo "I'm in $(pwd)"
 echo "I'm in `pwd`"
+
+# strict mode
+set -euo pipefail
+IFS=$'\n\t'
 ```
 
 
@@ -39,6 +46,8 @@ if [ -z "$string" ]; then
   echo "String is empty"
 elif [ -n "$string" ]; then
   echo "String is not empty"
+else
+  echo "..."
 fi
 ```
 
@@ -101,4 +110,34 @@ myfunc() {
 }
 result=$(myfunc)
 
+```
+
+
+### String
+
+```sh
+str="hello world"
+
+# substring
+${FOO:0:3}  # substring (position, length)
+${FOO:-3:3} # substring from the right
+
+# regex
+if [[ $str =~ "^h" ]]
+```
+
+
+### Arrays
+```sh
+Fruits=('Apple' 'Banana' 'Orange')
+Fruits[0]="Apple"
+Fruits[1]="Banana"
+Fruits[2]="Orange"
+
+echo ${Fruits[0]}           # Element #0
+echo ${Fruits[@]}           # All elements, space-separated
+echo ${#Fruits[@]}          # Number of elements
+echo ${#Fruits}             # String length of the 1st element
+echo ${#Fruits[3]}          # String length of the Nth element
+echo ${Fruits[@]:3:2}       # Range (from position 3, length 2)
 ```
