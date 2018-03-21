@@ -17,6 +17,7 @@ tar tvf archive.tar.[gz|bz2|lzma|xz]  # Test (list) a compressed archive
 tar xvf archive.tar.[gz|bz2|lzma|xz]  # Extract the contents of a compressed archive
 # -h,--dereference : follow symlinks, archive and dump the files they point to
 
+ln -s target link_name  # make symbolic links between files, link_name -> target
 wc file  # (word count) Number of bytes, words and lines in file
 du -sh dir1 file1  # (disk usage) Show the total size on disk of files or directories 
 df -h .  # Show the size, total space and free space of the current partition
@@ -33,6 +34,8 @@ kill -9 -1  # Kill all processes (at least all user ones)
 
 ### System/User administration
 ```sh
+sudo vi /etc/environment  # edit global environment variables
+
 adduser username  # Add a new user
 adduser user group  # Add user to group
 groups user  # Show which groups user belongs to
