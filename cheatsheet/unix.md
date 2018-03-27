@@ -79,3 +79,12 @@ lspci | grep -i vga  # vga card info
 <prefix> c  # Create a new window
 <prefix> d  # Detach the current client
 ```
+
+
+### Server 
+(SSH port forwarding rel.)[https://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/]
+```
+ssh -L <local port>:<remote host>:<remote port> user@host -p <ssh-port>
+ssh -N -f -L 8888:localhost:8888 user@host -p 18226  # example for jupyter
+ssh -N -f -L 6006:localhost:6006 user@host  # example for tensorboard
+```
