@@ -14,7 +14,7 @@ which  # locate a command
 
 tar zcvf archive.tar.gz dir  # Create a compressed archive (z:gzip, j:bzip2, J:xz)
 tar tvf archive.tar.[gz|bz2|lzma|xz]  # Test (list) a compressed archive
-tar xvf archive.tar.[gz|bz2|lzma|xz]  # Extract the contents of a compressed archive
+tar xvf archive.tar.[gz|bz2|lzma|xz] -C ./archive # Extract the contents of a compressed archive to ./archive
 # -h,--dereference : follow symlinks, archive and dump the files they point to
 
 ln -s target link_name  # make symbolic links between files, link_name -> target
