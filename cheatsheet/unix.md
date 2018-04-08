@@ -43,6 +43,9 @@ groups user  # Show which groups user belongs to
 finger user  # Tell more information about user
 sudo chown -R newuser.newgroup dir  # Change the owner and group of a directory and all its contents
 
+fdisk -l  # List the partition tables
+mkfs.ext4 /dev/sda1  # Format /dev/sda1 to ext4 fs
+
 sudo mount /dev/uba1 /mnt/usbdisk  # Mount a formatted partition
 sudo umount /mnt/usbdisk  # Unmount a filesystem
 
