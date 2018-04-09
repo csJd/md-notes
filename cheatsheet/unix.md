@@ -13,9 +13,12 @@ locate "*log*"  # Quick system-wide file search by pattern
 which  # locate a command
 
 tar zcvf archive.tar.gz dir  # Create a compressed archive (z:gzip, j:bzip2, J:xz)
+# -h,--dereference : follow symlinks, archive and dump the files they point to
 tar tvf archive.tar.[gz|bz2|lzma|xz]  # Test (list) a compressed archive
 tar xvf archive.tar.[gz|bz2|lzma|xz] -C ./archive # Extract the contents of a compressed archive to ./archive
-# -h,--dereference : follow symlinks, archive and dump the files they point to
+
+zip archive.zip file -r dir  # create zip archive including file and dir
+unzip -O gbk archive.zip -d ./archive  # unzip archive.zip to ./archive and specify filename encoding
 
 ln -s target link_name  # make symbolic links between files, link_name -> target
 ln -s ~/opt/miniconda3/bin/* ~/bin/ # link all files into ~/bin/*
