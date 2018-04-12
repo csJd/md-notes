@@ -51,6 +51,7 @@ mkfs.ext4 /dev/sda1  # Format /dev/sda1 to ext4 fs
 
 sudo mount /dev/uba1 /mnt/usbdisk  # Mount a formatted partition
 sudo umount /mnt/usbdisk  # Unmount a filesystem
+mount -o loop test.img /mnt/img  # Mount a image file (iso,img...)
 
 du -h  # report file system disk space usage
 df -h  # estimate file space usage, -h: print sizes in human readable format
