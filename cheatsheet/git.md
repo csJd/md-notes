@@ -46,6 +46,18 @@ svn co https://github.com/csJd/csJd.github.io/branches/hexo/scaffolds # with .sv
 svn export https://github.com/csJd/csJd.github.io/branches/hexo/scaffolds # without .svn
 ```
 
+* Create an empty branch and update to github
+```sh
+git clone repo-url
+git checkout --orphan new-branch-name
+git rm -rf .
+touch .gitignore
+git add .
+git commit -m "Add .gitignore"
+git push
+```
+
+
 # My Frequently Forgotten Facts (FFFs)
 ------
 ### 1. Set my [.gitconfig](https://git-scm.com/docs/git-config#_syntax)
@@ -76,6 +88,7 @@ cmd|first|second
 * `git checkout -b new-brach-name`  Create a new branch and switch to it
 * `git merge branch1 branch2 ...`  Merge branch1 and branch2 into current branch 
 * `git branch -d branch-name`  Delete a branch
+* `git checkout --orphan new-brach-name` Create a new unparented branch
 
 ### 4. remote
 * `git remote`  Show remotes
