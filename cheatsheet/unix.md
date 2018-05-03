@@ -56,6 +56,9 @@ mount -o loop test.img /mnt/img  # Mount a image file (iso,img...)
 du -h  # report file system disk space usage
 df -h  # estimate file space usage, -h: print sizes in human readable format
 
+dd bs=1M count=2048 if=/dev/zero of=test conv=fdatasync  # test disk write speed
+dd if=file.iso of=/dev/sdc  # burn iso into a disk
+
 uname -a  # Check the system kernel version
 ```
 
