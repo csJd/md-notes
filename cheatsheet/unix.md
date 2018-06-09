@@ -93,6 +93,8 @@ lspci | grep -i vga  # vga card info
 
 ### Server 
 ```
+lsof -i[:port]  # show port usage
+
 nc -zv 183.3.143.131 22   # Check port
 nc -zv [-w timeout] host port[-port]  # Test port connections
 ```
