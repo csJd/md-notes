@@ -92,6 +92,11 @@ lspci | grep -i vga  # vga card info
 
 
 ### Server 
+```
+nc -zv 183.3.143.131 22   # Check port
+nc -zv [-w timeout] host port[-port]  # Test port connections
+```
+
 (SSH port forwarding rel.)[https://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/]
 ```
 ssh -L <local port>:<remote host>:<remote port> user@host -p <ssh-port>
