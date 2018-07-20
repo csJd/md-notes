@@ -93,13 +93,18 @@ cmd|first|second
 ### 4. remote
 * `git remote`  Show remotes
 * `git remote -v`  Show remotes more verbose
-* `git remote add <name> <url>`  Adds a remote named `<name>` for the repository at `<url>`
+* `git remote add <remote-name> <url>`  Adds a remote named `<remote-name>` for the repository at `<url>`
+* `git remote rm <remote-name>`  Remove a remote named `<remote-name>`
 ```sh
  git remote add origin git@github.com:csJd/pl-review.git
+ # change remote url, 'origin' is remote name
+ git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
 ```
 * `git push <remote-name> <branch-name>`  Push local branch named `<branch-name>` to remote named `<remote-name>`
+* `git push -u <remote-name> <local-branch-name>:<remote-branch-name>`  Set default upstream for a local branch
 ```sh
   git push origin master
+  git push -u origin master:master
 ```
 * `git pull <remote-name> <branch-name>`  Pull remote named `<remote-name>` to local branch named `<branch-name>`
 ``` bash
