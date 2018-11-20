@@ -2,7 +2,7 @@
 
 ## 0 准备材料
 * [U 盘（8G+)](https://item.jd.com/5723649.html)
-* [Windows 10 ISO](https://msdn.itellyou.cn/)
+* [Windows 10 ISO](https://www.microsoft.com/zh-cn/software-download/windows10ISO)
 * [Ubuntu Desktop LTS 版 ISO](https://www.ubuntu.com/download/desktop)
 * [Rufus Portable 版](https://rufus.ie/zh_CN.html)
 * [WEPE Win10PE 64 位版](http://www.wepe.com.cn/download.html)
@@ -29,6 +29,6 @@
  * 在安装好的 Windows 中使用 rufus 将 Ubuntu 镜像写入 U 盘
  * 重启按 **F12** 选择从 U 盘启动，选择 「安装 Ubuntu」
  * 「安装类型」处选择「其他选项」
- * 在空闲分区处点击下方加号依次创建 `swap`[8G], `/`[50G], `/home`[剩余空间]，点击「现在安装」
- * 完成 Ubuntu 安装步骤
+ * 在空闲分区处点击下方加号依次创建 `swap`[8G], `/`[50G], `/home`[剩余空间]
+ * 点击下方「现在安装」完成 Ubuntu 安装步骤
 
