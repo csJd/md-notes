@@ -3,8 +3,8 @@
 ## Online res
 
 * 知乎回答：[macOS (OS X) 有哪些常用的快捷键？](https://www.zhihu.com/question/20021861)
-
 * [OverAPI Cheat sheet](http://www.extensions.in.th/post/rescue/OSX_KeyCombo_Reference_Guide.pdf)
+* [Office 字体](https://github.com/guorenxi/MacFonts) [2](https://bbs.feng.com/read-htm-tid-11828177.html)
 
 
 ## MOST WANTED
