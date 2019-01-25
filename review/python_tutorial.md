@@ -2,13 +2,11 @@
 
 # Python basic tutorial（2019.01.26）
 
----
 
 
 
 ## Preliminary
 
----
 
 * [VS Code](https://code.visualstudio.com/)
   - Python extension
@@ -22,7 +20,7 @@
 
 ## Python tutorial ( Forked from [CS231](http://cs231n.github.io/python-numpy-tutorial/))
 
----
+
 
 ### Standard Input & Output
 
@@ -42,7 +40,7 @@ print("Hello", name)
 
 ### Basic data types
 
----
+
 
 Like most languages, Python has a number of basic types including integers, floats, booleans, and strings. These data types behave in ways that are familiar from other programming languages.
 
@@ -155,13 +153,13 @@ You can konw more about Python built-in types [in the documentation](https://doc
 
 #### Quiz #1: [Calclating A + B + C](https://nanti.jisuanke.com/t/1)
 
----
+
 
 
 
 ### Containers
 
-----
+
 
 Python includes several built-in container types: lists, dictionaries, sets, and tuples.
 
@@ -366,13 +364,13 @@ print(d[(1, 2)])  # Prints "1"
 
 [The documentation](https://docs.python.org/3.5/tutorial/datastructures.html#tuples-and-sequences) has more information about tuples.
 
----
+
 
 
 
 ### Control flow
 
----
+
 
 #### Condition
 
@@ -473,7 +471,7 @@ if True:
 
 You can know more about loops from [offical documents](https://docs.python.org/3/tutorial/datastructures.html#tut-loopidioms) , and more about Python's simple statements in [documents](https://docs.python.org/3/reference/simple_stmts.html) too
 
----
+
 
 
 
@@ -516,7 +514,7 @@ There is a lot more information about Python functions [in the documentation](ht
 
 #### Quiz #4 : [Implement the `sqrt()`](https://nanti.jisuanke.com/t/17)
 
----
+
 
 
 
@@ -545,13 +543,13 @@ g.greet(loud=True)   # Call an instance method; prints "HELLO, FRED!"
 
 You can read a lot more about Python classes [in the documentation](https://docs.python.org/3.5/tutorial/classes.html).
 
----
+
 
 
 
 ### File Input&Output
 
----
+
 
 Interact with files in Python is much easier than other languages , you can simply use [`open()`](https://docs.python.org/3/library/functions.html#open) built-in function.
 
@@ -583,13 +581,13 @@ A 2333
 . 23333
 ```
 
----
+
 
 
 
 ### Exceptions
 
----
+
 
 ```python
 def zero_division_fails():
@@ -618,7 +616,7 @@ You can know more about errors and exceptions in Python [in the documentation](h
 
 
 
----
+
 
 ## END
 
