@@ -507,7 +507,7 @@ You can know more about loops from [offical documents](https://docs.python.org/3
 
 ### Functions
 
----
+
 
 Python functions are defined using the `def` keyword. For example:
 
