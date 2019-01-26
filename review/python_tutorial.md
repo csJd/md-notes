@@ -1,8 +1,33 @@
-[TOC]
-
 # Python basic tutorial（2019.01.26）
 
-
+- [Python basic tutorial（2019.01.26）](#python-basic-tutorial20190126)
+  - [Prerequisites](#prerequisites)
+  - [Python tutorial ( Forked from CS231)](#python-tutorial--forked-from-cs231)
+    - [Standard Input & Output](#standard-input--output)
+    - [Basic data types](#basic-data-types)
+      - [Numbers](#numbers)
+      - [Booleans](#booleans)
+      - [Strings](#strings)
+      - [None](#none)
+      - [Type casting](#type-casting)
+      - [Quiz #1: Calclating A + B + C](#quiz-1-calclating-a--b--c)
+    - [Containers](#containers)
+      - [Lists | [value, ]](#lists--value)
+      - [Quiz #2: Fibonacci numbers](#quiz-2-fibonacci-numbers)
+      - [Dictionaries | {key: value, }](#dictionaries--key-value)
+      - [Sets | {element, }](#sets--element)
+      - [Quiz # 3: Remove repeated values](#quiz--3-remove-repeated-values)
+      - [Tuples | (value, )](#tuples--value)
+    - [Control flow](#control-flow)
+      - [Condition](#condition)
+      - [Loops](#loops)
+    - [Functions](#functions)
+      - [Quiz #4 : Implement the `sqrt()`](#quiz-4--implement-the-sqrt)
+    - [Classes](#classes)
+    - [File Input&Output](#file-inputoutput)
+      - [Quiz #5: Char count](#quiz-5-char-count)
+    - [Exceptions](#exceptions)
+  - [END](#end)
 
 
 ## Prerequisites
