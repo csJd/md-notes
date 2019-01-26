@@ -5,12 +5,12 @@
 
 
 
-## Preliminary
+## Prerequisites
 
 
 * [VS Code](https://code.visualstudio.com/)
 
-  - Python extension
+  - [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 * [Python 3  (conda version)](https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/)
 
   * Use tuna mirrors ([conda](https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/) , [pypi](https://mirrors.tuna.tsinghua.edu.cn/help/pypi/) )
