@@ -9,12 +9,26 @@
 
 
 * [VS Code](https://code.visualstudio.com/)
+
   - Python extension
 * [Python 3  (conda version)](https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/)
-  * Use tuna sources（ [conda](https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/) , [pypi](https://mirrors.tuna.tsinghua.edu.cn/help/pypi/) ）
-  * IPython, `pip install ipython`
-  * numpy , `pip install numpy`
-* [PyCharm（Community Version）](https://www.jetbrains.com/pycharm/download)
+
+  * Use tuna mirrors ([conda](https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/) , [pypi](https://mirrors.tuna.tsinghua.edu.cn/help/pypi/) )
+
+  * [IPython](https://ipython.org/), `pip(conda) install ipython`
+
+  * [NumPy](http://www.numpy.org/) , `pip(conda) install numpy`
+
+  * Create a Python 3.6 environment and activate it
+
+    ```sh
+    conda create --name py36 python=3.6
+    activate py36
+    # activate base
+    ```
+* [PyCharm (Community Version)](https://www.jetbrains.com/pycharm/download)
+
+You can know more about conda package manager [in the documentation](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html).
 
 
 
@@ -40,9 +54,9 @@ print("Hello", name)
 
 ### Basic data types
 
-
-
 Like most languages, Python has a number of basic types including integers, floats, booleans, and strings. These data types behave in ways that are familiar from other programming languages.
+
+
 
 #### Numbers
 
@@ -571,14 +585,18 @@ with open('file.txt') as file:
     print(file.readlines())
 ```
 
+
+
 #### Quiz #5: Char count
 
-[Download data file here](https://github.com/csJd/md-notes/tree/master/review/python_tutorial.md). Calclate all characters' frequencies and save them into `charcount.txt` file like following.
+[Download data file here](https://raw.githubusercontent.com/csJd/md-notes/master/review/python_tutorial.md). Calclate all characters' frequencies and save them into `charcount.txt` file like following.
 
 ```
-a 233
-A 2333
-. 23333
+char counts
+-----------
+.    233
+a    2333
+A    23333
 ```
 
 
@@ -594,22 +612,29 @@ def zero_division_fails():
     x = 1/0
     
 def type_error_fails():
-    x = 'hello'
+    x = "hello"
     x[0] = 'a'
+
+def no_error():
+    print("I'm fine")
 
 def test(test_func):
     try:
         test_func()
     except ZeroDivisionError as err:
-        print('Handling run-time error:', err)
+        print("Handling run-time error:", err)
     except TypeError as err:
         raise err
     finally:
-        print('in finally')
+        print("In finally")
 
+
+print("test zero division case")
 test(zero_division_fails)
-print('-----------------')
+print("\ntest type error case")
 test(type_error_fails)
+print("\nno error case")
+test(no_error)
 ```
 
 You can know more about errors and exceptions in Python [in the documentation](https://docs.python.org/3/tutorial/errors.html).
