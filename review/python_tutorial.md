@@ -471,15 +471,17 @@ while(i < 10):
 A [`break`](https://docs.python.org/3/reference/simple_stmts.html#break) statement executed in the first suite terminates the loop without executing the `else` clause’s suite. 
 
 ```python
-# Print all prime number smaller than 10
-for n in range(2, 10):
-    for x in range(2, n):
-        if n % x == 0:
-            print(n, 'equals', x, '*', n//x)
-            break
-    else:
-        # loop fell through without finding a factor
-        print(n, 'is a prime number')
+# judge whether a number is a prime number
+x = int(input())
+flag = True
+for i in range(2, x):
+    if x % i == 0:
+        flag = False
+        break
+if flag:
+    print("YES")
+else:
+    print("NO")
 ```
 
 A [`continue`](https://docs.python.org/3/reference/simple_stmts.html#continue) statement executed in the first suite skips the rest of the suite and continues with the next item.
