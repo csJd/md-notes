@@ -468,7 +468,7 @@ while(i < 10):
     i += 1
 ```
 
-A [`break`](https://docs.python.org/3/reference/simple_stmts.html#break) statement executed in the first suite terminates the loop without executing the `else` clause’s suite. 
+A [`break`](https://docs.python.org/3/reference/simple_stmts.html#break) statement will terminate the loop. 
 
 ```python
 # judge whether a number is a prime number
@@ -502,7 +502,6 @@ if True:
 ```
 
 You can know more about loops from [offical documents](https://docs.python.org/3/tutorial/datastructures.html#tut-loopidioms) , and more about Python's simple statements in [documents](https://docs.python.org/3/reference/simple_stmts.html) too
-
 
 
 
@@ -545,7 +544,6 @@ There are a number of built-in functions (like `len()`) in Python, you can konw 
 There is a lot more information about Python functions [in the documentation](https://docs.python.org/3/tutorial/controlflow.html#defining-functions).
 
 #### Quiz #4 : [Implement `sqrt()` function](https://nanti.jisuanke.com/t/17)
-
 
 
 
