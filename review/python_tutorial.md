@@ -16,15 +16,15 @@
       - [Quiz #2: Fibonacci numbers](#quiz-2-fibonacci-numbers)
       - [Dictionaries | {key: value, }](#dictionaries--key-value)
       - [Sets | {element, }](#sets--element)
-      - [Quiz # 3: Remove repeated values](#quiz--3-remove-repeated-values)
+      - [Quiz #3: Remove repeated values](#quiz-3-remove-repeated-values)
       - [Tuples | (value, )](#tuples--value)
     - [Control flow](#control-flow)
       - [Condition](#condition)
       - [Loops](#loops)
     - [Functions](#functions)
-      - [Quiz #4 : Implement the `sqrt()`](#quiz-4--implement-the-sqrt)
+      - [Quiz #4 : Implement `sqrt()` function](#quiz-4--implement-sqrt-function)
     - [Classes](#classes)
-    - [File Input&Output](#file-inputoutput)
+    - [File Input & Output](#file-input--output)
       - [Quiz #5: Char count](#quiz-5-char-count)
     - [Exceptions](#exceptions)
   - [END](#end)
@@ -110,7 +110,7 @@ print(y, y + 1, y * 2, y ** 2) # Prints "2.5 3.5 5.0 6.25"
 
 Note that unlike many languages, Python does not have unary increment (`x++`) or decrement (`x--`) operators.
 
-Python also has built-in types for complex numbers; you can find all of the details [in the documentation](https://docs.python.org/3.5/library/stdtypes.html#numeric-types-int-float-complex).
+Python also has built-in types for complex numbers; you can find all of the details [in the documentation](https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex).
 
 
 
@@ -128,7 +128,6 @@ print(not t)   # Logical NOT; prints "False"
 print(t != f)  # Logical XOR; prints "True"
 print(t == t)
 ```
-
 
 
 #### Strings
@@ -171,11 +170,9 @@ hello[0] = 'i'  # Invalid statement
 You can find a list of all string methods [in the documentation](https://docs.python.org/3/library/stdtypes.html#string-methods).
 
 
-
 #### None
 
-The sole value of the type `NoneType`. [`None`](https://docs.python.org/3.2/library/constants.html#None) is frequently used to represent the absence of a value.
-
+The sole value of the type `NoneType`. [`None`](https://docs.python.org/3/library/constants.html#None) is frequently used to represent the absence of a value.
 
 
 #### Type casting
@@ -191,7 +188,6 @@ print(bool(""), bool("hello"))
 You can konw more about Python built-in types [in the documentation](https://docs.python.org/3/library/stdtypes.html).
 
 #### Quiz #1: [Calclating A + B + C](https://nanti.jisuanke.com/t/1)
-
 
 
 
@@ -225,7 +221,7 @@ x = xs.pop()      # Remove and return the last element of the list
 print(x, xs)      # Prints "bar [3, 1, 'foo']"
 ```
 
-As usual, you can find all the gory details about lists [in the documentation](https://docs.python.org/3.5/tutorial/datastructures.html#more-on-lists).
+As usual, you can find all the gory details about lists [in the documentation](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists).
 
 **Slicing:** In addition to accessing list elements one at a time, Python provides concise syntax to access sublists; this is known as *slicing*:
 
@@ -291,7 +287,6 @@ print(even_squares)  # Prints "[0, 4, 16]"
 #### Quiz #2: [Fibonacci numbers](https://nanti.jisuanke.com/t/4)
 
 
-
 #### Dictionaries | {key: value, }
 
 A dictionary stores (key, value) pairs, similar to a `Map` in Java or an object in Javascript. You can use it like this:
@@ -313,7 +308,7 @@ del d['fish']         # Remove an element from a dictionary
 print(d.get('fish', 'N/A')) # "fish" is no longer a key; prints "N/A"
 ```
 
-You can find all you need to know about dictionaries [in the documentation](https://docs.python.org/3.5/library/stdtypes.html#dict).
+You can find all you need to know about dictionaries [in the documentation](https://docs.python.org/3/library/stdtypes.html#dict).
 
 **Loops:** It is easy to iterate over the keys in a dictionary:
 
@@ -343,7 +338,6 @@ print(even_num_to_square)  # Prints "{0: 0, 2: 4, 4: 16}"
 ```
 
 
-
 #### Sets | {element, }
 
 A set is an unordered collection of distinct elements. As a simple example, consider the following:
@@ -365,7 +359,7 @@ animals.remove('cat')     # Remove an element from a set
 print(len(animals))       # Prints "2"
 ```
 
-As usual, everything you want to know about sets can be found [in the documentation](https://docs.python.org/3.5/library/stdtypes.html#set).
+As usual, everything you want to know about sets can be found [in the documentation](https://docs.python.org/3/library/stdtypes.html#set).
 
 **Loops:** Iterating over a set has the same syntax as iterating over a list; however since sets are unordered, you cannot make assumptions about the order in which you visit the elements of the set:
 
@@ -385,7 +379,7 @@ print(nums)  # Prints "{0, 1, 2, 3, 4, 5}"
 
 ```
 
-#### Quiz # 3: [Remove repeated values](https://nanti.jisuanke.com/t/11)
+#### Quiz #3: [Remove repeated values](https://nanti.jisuanke.com/t/11)
 
 
 
@@ -401,7 +395,7 @@ print(d[t])       # Prints "5"
 print(d[(1, 2)])  # Prints "1"
 ```
 
-[The documentation](https://docs.python.org/3.5/tutorial/datastructures.html#tuples-and-sequences) has more information about tuples.
+[The documentation](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences) has more information about tuples.
 
 
 
@@ -433,17 +427,14 @@ There can be zero or more [`elif`](https://docs.python.org/3/reference/compound_
 
 
 
-**Truth value testing** : Any object can be tested for truth value, for use in an [`if`](https://docs.python.org/2/reference/compound_stmts.html#if) or [`while`](https://docs.python.org/2/reference/compound_stmts.html#while) condition or as operand of the Boolean operations below. The following values are considered false:
+**Truth value testing** : Any object can be tested for truth value, for use in an [`if`](https://docs.python.org/3/reference/compound_stmts.html#if) or [`while`](https://docs.python.org/3/reference/compound_stmts.html#while) condition or as operand of the Boolean operations below. The following values are considered false:
 
 - `None`
 - `False`
 - zero of any numeric type, for example, `0`, `0L`, `0.0`, `0j`.
 - any empty sequence, for example, `''`, `()`, `[]`.
 - any empty mapping, for example, `{}`.
-- instances of user-defined classes, if the class defines a [`__nonzero__()`](https://docs.python.org/2/reference/datamodel.html#object.__nonzero__) or [`__len__()`](https://docs.python.org/2/reference/datamodel.html#object.__len__) method, when that method returns the integer zero or [`bool`](https://docs.python.org/2/library/functions.html#bool) value `False`. [[1\]](https://docs.python.org/2/library/stdtypes.html#id12)
-
-All other values are considered true — so objects of many types are always true.
-
+- most of others are true.
 
 
 #### Loops
@@ -549,9 +540,9 @@ hello('Fred', loud=True)  # Prints "HELLO, FRED!"
 
 There are a number of built-in functions (like `len()`) in Python, you can konw more about them [in the documentation](https://docs.python.org/3/library/functions.html).
 
-There is a lot more information about Python functions [in the documentation](https://docs.python.org/3.5/tutorial/controlflow.html#defining-functions).
+There is a lot more information about Python functions [in the documentation](https://docs.python.org/3/tutorial/controlflow.html#defining-functions).
 
-#### Quiz #4 : [Implement the `sqrt()`](https://nanti.jisuanke.com/t/17)
+#### Quiz #4 : [Implement `sqrt()` function](https://nanti.jisuanke.com/t/17)
 
 
 
@@ -580,13 +571,13 @@ g.greet()            # Call an instance method; prints "Hello, Fred"
 g.greet(loud=True)   # Call an instance method; prints "HELLO, FRED!"
 ```
 
-You can read a lot more about Python classes [in the documentation](https://docs.python.org/3.5/tutorial/classes.html).
+You can read a lot more about Python classes [in the documentation](https://docs.python.org/3/tutorial/classes.html).
 
 
 
 
 
-### File Input&Output
+### File Input & Output
 
 
 
@@ -663,7 +654,6 @@ test(no_error)
 ```
 
 You can know more about errors and exceptions in Python [in the documentation](https://docs.python.org/3/tutorial/errors.html).
-
 
 
 
