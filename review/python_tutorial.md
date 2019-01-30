@@ -463,7 +463,7 @@ The [`while`](https://docs.python.org/3/reference/compound_stmts.html#while) sta
 
 ```python
 i = 0
-while(i < 10):
+while i < 10:
     print(i)
     i += 1
 ```
