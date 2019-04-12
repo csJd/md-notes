@@ -24,3 +24,6 @@
   ``` defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false```
 
 * [Add Sublime text to right click](https://gist.github.com/idleberg/fc0df222e1df258d525d704042d72582)
+
+* Disable dark mode for an APP
+  ```defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool true```
