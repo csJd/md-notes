@@ -1,7 +1,13 @@
 # MY CONDA CHEAT SHEET
 
+## Config
+```sh
+# disable auto activation
+conda config --set auto_activate_base false
+```
+
 ## Conda basics
-[See Official gs here](https://conda.io/docs/user-guide/getting-started.html)
+[See Official gs here](https://conda.io/docs/user-guide/getting-started.html), and a [PDF version](https://conda.io/projects/conda/en/latest/user-guide/cheatsheet.html)
 
 ```sh
 conda info                  # Verify conda is installed, check version number
@@ -21,4 +27,5 @@ activate py2                            # Activate the new environment to use it
 source activate py2                     # Activate the new environment to use it in Unix
 conda env list                          # Get a list of all my environments
 conda create --clone py2 --name py2_0   # Make exact copy of an environment
+conda list -r                           # Show revisions
 ```
