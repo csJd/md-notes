@@ -15,3 +15,8 @@
    - [Python Basic Tutorial](experience/python_tutorial.md)
    - [Install Ubuntu & Windows10](experience/dual_boot.md)
  - [Review](review)
+   - [algorithm](review/algo)
+   - [python](review/python)
+   - [java](review/java)
+   - [c++](review/cplusplus)
+   - [sql](review/sql)
