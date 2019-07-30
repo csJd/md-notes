@@ -13,8 +13,6 @@
   * `evel(...)`, `exec(...)`
 
 
-
-
 ## [PEP498: f-strings](https://www.python.org/dev/peps/pep-0498/)
 * [`str.format()` and built-in `format()`](https://docs.python.org/3/library/string.html#formatspec)
   ```python
@@ -27,5 +25,6 @@
   '1991-10-12 was on a Saturday'
   ```
 
-## Usage
+## Misc
+* [Time complexity of operations](https://wiki.python.org/moin/TimeComplexity)
 * [`for ... break` statement](https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops)
