@@ -27,4 +27,6 @@
 
 ## Misc
 * [Time complexity of operations](https://wiki.python.org/moin/TimeComplexity)
+* [Operator precedence](https://docs.python.org/3/reference/expressions.html#operator-precedence)
+* [Object default methods](https://docs.python.org/3/reference/datamodel.html#basic-customization)
 * [`for ... break` statement](https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops)
