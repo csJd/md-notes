@@ -34,3 +34,37 @@
 * [Object default methods](https://docs.python.org/3/reference/datamodel.html#basic-customization)
 * [`for ... break` statement](https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops)
 * [liscomps and genexps](https://docs.python-guide.org/writing/style/#short-ways-to-manipulate-lists)
+
+## Be careful
+
+* Do Not use mutable types as parameter defaults (Fluent Python P230)
+
+```python
+In [1]: def func(a=[]):
+    ...:     a.append(1)
+    ...:     print(a)
+
+In [2]: func()
+[1]
+
+In [3]: func()
+[1, 1]
+```
+
+* CPython does not intern all strings or integers. Never depend on str or int interning! Always use == and not is to compare them for equality (Fluent Python P241)
+
+```python
+In [1]: a = 10086
+
+In [2]: b = 10086
+
+In [3]: a is b
+Out[3]: False
+
+In [4]: a = 1
+
+In [5]: b = 1
+
+In [6]: a is b
+Out[6]: True
+```
