@@ -10,3 +10,8 @@
 * `n & (n-1) == 0`: if n is 2^k
 * `a ^= b; b ^= a; a^= b`: swap two number
 * `x ^ y >= 0`: check if a * b >= 0
+
+## MISC
+
+* `EOF`: `Ctrl+Z` in Windows, `Ctrl+D` in Linux/macOS
+* `int a = 20, b = 024, c = 0x14`, a == b, b == c

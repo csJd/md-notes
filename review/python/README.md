@@ -34,6 +34,7 @@
 * [Object default methods](https://docs.python.org/3/reference/datamodel.html#basic-customization)
 * [`for ... break` statement](https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops)
 * [liscomps and genexps](https://docs.python-guide.org/writing/style/#short-ways-to-manipulate-lists)
+* `10 == 0b1010 == 0o12 == 0xa`: True, they are all valid literal of integer 10
 
 ## Be careful
 
