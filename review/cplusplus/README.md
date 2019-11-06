@@ -15,3 +15,7 @@
 
 * `EOF`: `Ctrl+Z` in Windows, `Ctrl+D` in Linux/macOS
 * `int a = 20, b = 024, c = 0x14`, a == b, b == c
+* Variables defined **outside any function** are initialized to zero, which defined inside a function are uninitialized.
+* A constant expression is an expression whose value cannot change and that can be evaluated at compile time. (P65)
+* The number of elements in an array is part of the array’s type, the dimension must be known at compile time. (P113)
+* The array returned by `s.c_str()` is not guaranteed to be valid indefinitely. Any subsequent use of s that might change the value of s can invalidate this array. (P125)
