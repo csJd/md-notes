@@ -282,30 +282,91 @@
   // unlike unique_ptr, shared_ptrs provide no direct support for managing a dynamic array.
   ```
 
-## Class related
+## Object-oriented
 
-* Five special member functions: copy constructor, copy-assignment operator, move constructor, move-assignment operator, and destructor.
-* **explicit** constructors can be used only for direct initialization. (P296)
-* When we do not define a copy constructor for a class, the compiler synthesizes one. (P497)
-* The compiler generates a **synthesized copy-assignment operator** for a class if the class does not define its own. (P500)
-* The destructor takes no parameters, it cannot be overloaded.
-* `= default` and `= delete` (P507)
+* Special member functions
+  * Five special member functions: copy constructor, copy-assignment operator, move constructor, move-assignment operator, and destructor.
+  * **explicit** constructors can be used only for direct initialization. (P296)
+  * When we do not define a copy constructor for a class, the compiler synthesizes one. (P497)
+  * The compiler generates a **synthesized copy-assignment operator** for a class if the class does not define its own. (P500)
+  * The destructor takes no parameters, it cannot be overloaded.
+  * The compiler will not let us define variables or create temporaries of a type that has a deleted destructor.
+  * `= default` and `= delete` (P507)
+
+    ```cpp
+    struct NoCopy {
+      NoCopy() = default;                         // use the synthesized default constructor
+      NoCopy(const NoCopy &) = delete;            // no copy
+      NoCopy &operator=(const NoCopy &) = delete; // no assignment
+      ~NoCopy() = default;                        // use the synthesized destructor
+      // other members
+    };
+    ```
+
+* Dynamic binding happens **only** when a **virtual function** is called through a reference (or a pointer) to a base class. (P594)
 
   ```cpp
-  struct NoCopy {
-    NoCopy() = default;              // use the synthesized default constructor
-    NoCopy(const NoCopy &) = delete; // no copy
-    NoCopy &operator=(const NoCopy &) = delete; // no assignment
-    ~NoCopy() = default; // use the synthesized destructor
-    // other members
+  class NoDerived final {/* */};  // final class cannot be derived
+
+  class Base {
+    public:
+      void fun() { cout << "fun() in Base; "; }
+      virtual void virtfun() { cout << "virtfun() in Base" << endl; }
+      // virtual void pvirtfun() = 0;  // pure virtual function
+      virtual ~Base() = default;  // virtual destructor needed if a base pointer pointing to a derived object is deleted
   };
+
+  class Derived : public Base {
+    public:
+      void fun() { cout << "fun() in Derived; "; } // fun is not virtual; it hides fun in the base
+      void virtfun() override { cout << "virtfun() in Derived" << endl; }
+      // `override` is not necessary, if given, it must overide a virtual function in Base
+      void pvirtfun() override {/* */};
+  };
+
+  void run(Base &b) {
+      b.fun();     // statically bound, calls Base::fun()
+      b.virtfun(); // dynamically bound
+  }
+
+  int main() {
+      Derived d;
+      run(d);              // output: fun() in Base; virtfun() in Derived
+      Base *pb = &d;       // valid, derived-to-base conversion
+      Base b = d;          // derived objects are “sliced down” when assigned to a base-type object
+      b.virtfun();         // output: virtfun() in Base
+      // Derived *pd = pb; // invalid
+      Derived *pd = static_cast<Derived *>(pb); // valid, named casts (P162), only when you know its safe
+  }
   ```
 
-* The compiler will not let us define variables or create temporaries of a type that has a deleted destructor.
+  * Any nonstatic member function, other than a constructor, may be virtual. (P595)
+  * The **static type** of an expression is always known at compile time—it is the type with which a variable is declared or that an expression yields.
+  * The **dynamic type** is the type of the object in memory that the variable or expression represents. (P601)
+  * The dynamic type of an expression that is **neither a reference nor a pointer** is always the same as that expression’s static type.
+  * Conversions among classes related by inheritance (P604):
+    * The conversion from derived to base applies **only** to pointer or reference types.
+    * There is no implicit conversion from the base-class type to the derived type.
+    * Like any member, the derived-to-base conversion may be inaccessible due to access controls.
+  * A class containing a **pure virtual function** is an abstract base class, We cannot (directly) create objects of a type that is an abstract base class.
+  * **BEST PRACTICE**: Aside from overriding inherited virtual functions, a derived class usually should not reuse names defined in its base class.
+
+  > KEY CONCEPT: NAME LOOKUP AND INHERITANCE (P619)
+  > Understanding how function calls are resolved is crucial to understanding inheritance
+  > in C++. Given the call `p->mem()` (or `obj.mem()`), the following four steps happen:
+  > • First determine the static type of `p` (or `obj`). Because we’re calling a member,that type must be a class type.
+  > • Look for `mem` in the class that corresponds to the static type of `p` (or `obj`).
+  If `mem` is not found, look in the direct base class and continue up the chain of classes until `mem` is found or the last class is searched.
+  If `mem` is not found in the class or its enclosing base classes, then the call will not compile.
+  > • Once `mem` is found, do normal type checking (§6.1, p. 203) to see if this call is legal given the definition that was found.
+  > • Assuming the call is legal, the compiler generates code,which varies depending on whether the call is virtual or not:
+  > * If mem is virtual and the call is made through a reference or pointer, then the compiler generates code to determine at run time which version to run based on the dynamic type of the object.
+  > * Otherwise,ifthefunctionisnonvirtual,orifthecallisonanobject(nota reference or pointer), the compiler generates a normal function call.
 
 ## Polymorphism
 
 * Overloaded functions must differ in the number or the type(s) of their parameters. The compiler can figure out which function to call. (P231)
+* The fact that the static and dynamic types of references and pointers can differ is the cornerstone of how C++ supports polymorphism. (P605)
 
 ## MISC
 
