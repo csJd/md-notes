@@ -1,11 +1,21 @@
 # My Frequently Forgotten Facts (FFFs)
 
-## Bit operation
+## Input/Output
 
-* `n = n & (n-1)`: change the lowest 1 bit to 0
-* `n & (n-1) == 0`: if n is 2^k
-* `a ^= b; b ^= a; a^= b`: swap two number
-* `x ^ y >= 0`: check if a * b >= 0
+* `int a = 42, b = 052, c = 0x2a;`, a == b, b == c
+
+  ```cpp
+  cout << dec << 42 << endl;  // output: 42
+  cout << oct << 42 << endl;  // output: 52
+  cout << hex << 42 << endl;  // output: 2a
+  // Input/output manipulators: https://en.cppreference.com/w/cpp/io/manip
+  ```
+
+* Bit operation
+  * `n = n & (n-1)`: change the lowest 1 bit to 0
+  * `n & (n-1) == 0`: if n is 2^k
+  * `a ^= b; b ^= a; a^= b`: swap two number
+  * `x ^ y >= 0`: check if a * b >= 0
 
 ## Pointer, Reference and Array
 
@@ -71,6 +81,12 @@
 
     * Lvalues Persist; Rvalues Are Ephemeral; Variables Are Lvalues
     * Rvalues are moved, lvalues are copied, but rvalues are copied if there is no move constructor
+
+  * Reference collapsing applies only when a reference to a reference is cre- ated indirectly, such as in a type alias or a template parameter. (P688)
+    * `X& &`, `X& &&`, and `X&& &` all collapse to type `X&`
+    * The type `X&& &&` collapses to `X&&`
+  * An argument of any type can be passed to a function parameter that is an rvalue reference to a template parameter type (i.e., `T&&`). When an lvalue is passed to such a parameter, the function parameter is instantiated as an ordinary, lvalue reference (`T&`). (P689)
+  * We can explicitly cast an lvalue to an rvalue reference using `static_cast`. (P691)
 
 ## [Containers](https://en.cppreference.com/w/cpp/container)
 
@@ -140,6 +156,8 @@
     cout << pir.first << endl;
     cout << get<0>(tup) << endl;
     ```
+
+  * ['bitset'](https://en.cppreference.com/w/cpp/utility/bitset): `bitset<n> b;` `b` has `n` bits; each bit is 0.
 
 * When we initialize a container as a copy of another container, the **container type** and **element type** of both containers must be identical. (P335)
 * Every container type supports the equality operators (== and !=); all the containers except the unordered associative containers also support the relational operators (>, >=, <, <=). (P340)
@@ -361,12 +379,49 @@
   > • Once `mem` is found, do normal type checking (§6.1, p. 203) to see if this call is legal given the definition that was found.
   > • Assuming the call is legal, the compiler generates code,which varies depending on whether the call is virtual or not:
   > * If mem is virtual and the call is made through a reference or pointer, then the compiler generates code to determine at run time which version to run based on the dynamic type of the object.
-  > * Otherwise,ifthefunctionisnonvirtual,orifthecallisonanobject(nota reference or pointer), the compiler generates a normal function call.
+  > * Otherwise,if the function is nonvirtual, or if the call is on an object (not a reference or pointer), the compiler generates a normal function call.
 
-## Polymorphism
+  * Multiple Inheritance and Virtual Inheritance
+    * The order in which base classes are constructed depends on the order in which they appear in the class derivation list. (P804)
+    * By default, if the same base class appears more than once in the derivation, then the derived object will have more than one subobject of that type. (P810)
+    * **Virtual inheritance** lets a class specify that it is willing to share its base class. The shared base-class subobject is called a **virtual base class**.(P811)
 
-* Overloaded functions must differ in the number or the type(s) of their parameters. The compiler can figure out which function to call. (P231)
-* The fact that the static and dynamic types of references and pointers can differ is the cornerstone of how C++ supports polymorphism. (P605)
+      ```cpp
+      struct Base {
+      void bar(int); // public by default
+        protected:
+          int ival;
+      };
+
+      struct Derived1 : virtual public Base {
+          void bar(char); // public by default
+          void foo(char);
+        protected:
+          char cval;
+      };
+
+      struct Derived2 : virtual public Base {
+          void foo(int); // public by default
+        protected:
+          int ival;
+          char cval;
+      };
+
+      class VMI : public Derived1, public Derived2 {
+          void fun(int i) {
+              bar(i);     // bar() of Derived1, the version in the derived class is given precedence over the shared virtual base class
+              // foo(i);  // invalid, foo() is defined in both D1 and D2, direct access to it is ambiguous
+              Derived1::foo(i);   // ok
+              i = Derived2::cval; // ok
+          }
+      };
+      ```
+
+    * A class can have more than one virtual base class. In that case, the virtual subob- jects are constructed in left-to-right order as they appear in the derivation list. (P814)
+
+  * Polymorphism
+    * Overloaded functions must differ in the number or the type(s) of their parameters. The compiler can figure out which function to call. (P231)
+    * The fact that the static and dynamic types of references and pointers can differ is the cornerstone of how C++ supports polymorphism. (P605)
 
 ## MISC
 
@@ -374,9 +429,9 @@
 * Assignmnet and initialization are different, **copy initialization** and **direct initialization** are different. P(497)
 * [ASCII](https://en.wikipedia.org/wiki/ASCII) encodes 128 specified characters into seven-bit integers
 * `EOF`: `Ctrl+Z` in Windows, `Ctrl+D` in Linux/macOS
-* `int a = 20, b = 024, c = 0x14`, a == b, b == c
 * Variables defined **outside any function** are initialized to zero, which defined inside a function are uninitialized
 * A constant expression is an expression whose value cannot change and that can be evaluated at compile time. (P65)
 * The number of elements in an array is part of the array’s type, the dimension must be known at compile time. (P113)
 * The array returned by `s.c_str()` is not guaranteed to be valid indefinitely. Any subsequent use of s that might change the value of s can invalidate this array. (P125)
 * We can write a function that takes an unknown number of arguments of a single type by using an `initializer_list` parameter. (P220)
+* If a destructor does an operation that might throw, it should wrap that operation in a try block and handle it locally to the destructor. (P774)
