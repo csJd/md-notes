@@ -66,27 +66,27 @@
     };
     ```
 
-  * Rvalue References (P532)
-    * Generally speaking, an lvalue expression refers to an object’s identity whereas an rvalue expression refers to an object’s value.
-    * We can bind **rvalue references** (obtained by `&&`) to expressions that require a conversion, to literals, or to expressions that return an rvalue
+* Rvalue References (P532)
+  * Generally speaking, an lvalue expression refers to an object’s identity whereas an rvalue expression refers to an object’s value.
+  * We can bind **rvalue references** (obtained by `&&`) to expressions that require a conversion, to literals, or to expressions that return an rvalue
 
-      ``` cpp
-      int i = 42;
-      int &r = i;       // ok:r refers to i
-      int &&rr = i;     // error: cannot bind an rvalue reference to an lvalue
-      int &r2 = i * 42; // error: i*42 is an rvalue
-      const int &r3 = i * 42; // ok: we can bind a reference to const to an rvalue
-      int &&rr2 = i * 42;     // ok: bind rr2 to the result of the multiplication
-      ```
+    ``` cpp
+    int i = 42;
+    int &r = i;       // ok:r refers to i
+    int &&rr = i;     // error: cannot bind an rvalue reference to an lvalue
+    int &r2 = i * 42; // error: i*42 is an rvalue
+    const int &r3 = i * 42; // ok: we can bind a reference to const to an rvalue
+    int &&rr2 = i * 42;     // ok: bind rr2 to the result of the multiplication
+    ```
 
-    * Lvalues Persist; Rvalues Are Ephemeral; Variables Are Lvalues
-    * Rvalues are moved, lvalues are copied, but rvalues are copied if there is no move constructor
+  * Lvalues Persist; Rvalues Are Ephemeral; Variables Are Lvalues
+  * Rvalues are moved, lvalues are copied, but rvalues are copied if there is no move constructor
 
-  * Reference collapsing applies only when a reference to a reference is cre- ated indirectly, such as in a type alias or a template parameter. (P688)
-    * `X& &`, `X& &&`, and `X&& &` all collapse to type `X&`
-    * The type `X&& &&` collapses to `X&&`
-  * An argument of any type can be passed to a function parameter that is an rvalue reference to a template parameter type (i.e., `T&&`). When an lvalue is passed to such a parameter, the function parameter is instantiated as an ordinary, lvalue reference (`T&`). (P689)
-  * We can explicitly cast an lvalue to an rvalue reference using `static_cast`. (P691)
+* Reference collapsing applies only when a reference to a reference is cre- ated indirectly, such as in a type alias or a template parameter. (P688)
+  * `X& &`, `X& &&`, and `X&& &` all collapse to type `X&`
+  * The type `X&& &&` collapses to `X&&`
+* An argument of any type can be passed to a function parameter that is an rvalue reference to a template parameter type (i.e., `T&&`). When an lvalue is passed to such a parameter, the function parameter is instantiated as an ordinary, lvalue reference (`T&`). (P689)
+* We can explicitly cast an lvalue to an rvalue reference using `static_cast`. (P691)
 
 ## [Containers](https://en.cppreference.com/w/cpp/container)
 
@@ -358,74 +358,75 @@
   }
   ```
 
-  * Any nonstatic member function, other than a constructor, may be virtual. (P595)
-  * The **static type** of an expression is always known at compile time—it is the type with which a variable is declared or that an expression yields.
-  * The **dynamic type** is the type of the object in memory that the variable or expression represents. (P601)
-  * The dynamic type of an expression that is **neither a reference nor a pointer** is always the same as that expression’s static type.
-  * Conversions among classes related by inheritance (P604):
-    * The conversion from derived to base applies **only** to pointer or reference types.
-    * There is no implicit conversion from the base-class type to the derived type.
-    * Like any member, the derived-to-base conversion may be inaccessible due to access controls.
-  * A class containing a **pure virtual function** is an abstract base class, We cannot (directly) create objects of a type that is an abstract base class.
-  * **BEST PRACTICE**: Aside from overriding inherited virtual functions, a derived class usually should not reuse names defined in its base class.
+* Any nonstatic member function, other than a constructor, may be virtual. (P595)
+* The **static type** of an expression is always known at compile time—it is the type with which a variable is declared or that an expression yields.
+* The **dynamic type** is the type of the object in memory that the variable or expression represents. (P601)
+* The dynamic type of an expression that is **neither a reference nor a pointer** is always the same as that expression’s static type.
+* Conversions among classes related by inheritance (P604):
+  * The conversion from derived to base applies **only** to pointer or reference types.
+  * There is no implicit conversion from the base-class type to the derived type.
+  * Like any member, the derived-to-base conversion may be inaccessible due to access controls.
+* A class containing a **pure virtual function** is an abstract base class, We cannot (directly) create objects of a type that is an abstract base class.
+* **BEST PRACTICE**: Aside from overriding inherited virtual functions, a derived class usually should not reuse names defined in its base class.
 
-  > KEY CONCEPT: NAME LOOKUP AND INHERITANCE (P619)
-  > Understanding how function calls are resolved is crucial to understanding inheritance
-  > in C++. Given the call `p->mem()` (or `obj.mem()`), the following four steps happen:
-  > • First determine the static type of `p` (or `obj`). Because we’re calling a member,that type must be a class type.
-  > • Look for `mem` in the class that corresponds to the static type of `p` (or `obj`).
-  If `mem` is not found, look in the direct base class and continue up the chain of classes until `mem` is found or the last class is searched.
-  If `mem` is not found in the class or its enclosing base classes, then the call will not compile.
-  > • Once `mem` is found, do normal type checking (§6.1, p. 203) to see if this call is legal given the definition that was found.
-  > • Assuming the call is legal, the compiler generates code,which varies depending on whether the call is virtual or not:
-  > * If mem is virtual and the call is made through a reference or pointer, then the compiler generates code to determine at run time which version to run based on the dynamic type of the object.
-  > * Otherwise,if the function is nonvirtual, or if the call is on an object (not a reference or pointer), the compiler generates a normal function call.
+> KEY CONCEPT: NAME LOOKUP AND INHERITANCE (P619)
+> Understanding how function calls are resolved is crucial to understanding inheritance
+> in C++. Given the call `p->mem()` (or `obj.mem()`), the following four steps happen:
+> • First determine the static type of `p` (or `obj`). Because we’re calling a member,that type must be a class type.
+> • Look for `mem` in the class that corresponds to the static type of `p` (or `obj`).
+If `mem` is not found, look in the direct base class and continue up the chain of classes until `mem` is found or the last class is searched.
+If `mem` is not found in the class or its enclosing base classes, then the call will not compile.
+> • Once `mem` is found, do normal type checking (§6.1, p. 203) to see if this call is legal given the definition that was found.
+> • Assuming the call is legal, the compiler generates code,which varies depending on whether the call is virtual or not:
+> * If mem is virtual and the call is made through a reference or pointer, then the compiler generates code to determine at run time which version to run based on the dynamic type of the object.
+> * Otherwise,if the function is nonvirtual, or if the call is on an object (not a reference or pointer), the compiler generates a normal function call.
 
-  * Multiple Inheritance and Virtual Inheritance
-    * The order in which base classes are constructed depends on the order in which they appear in the class derivation list. (P804)
-    * By default, if the same base class appears more than once in the derivation, then the derived object will have more than one subobject of that type. (P810)
-    * **Virtual inheritance** lets a class specify that it is willing to share its base class. The shared base-class subobject is called a **virtual base class**.(P811)
+* Multiple Inheritance and Virtual Inheritance
+  * The order in which base classes are constructed depends on the order in which they appear in the class derivation list. (P804)
+  * By default, if the same base class appears more than once in the derivation, then the derived object will have more than one subobject of that type. (P810)
+  * **Virtual inheritance** lets a class specify that it is willing to share its base class. The shared base-class subobject is called a **virtual base class**.(P811)
 
-      ```cpp
-      struct Base {
-      void bar(int); // public by default
-        protected:
-          int ival;
-      };
+    ```cpp
+    struct Base {
+    void bar(int); // public by default
+      protected:
+        int ival;
+    };
 
-      struct Derived1 : virtual public Base {
-          void bar(char); // public by default
-          void foo(char);
-        protected:
-          char cval;
-      };
+    struct Derived1 : virtual public Base {
+        void bar(char); // public by default
+        void foo(char);
+      protected:
+        char cval;
+    };
 
-      struct Derived2 : virtual public Base {
-          void foo(int); // public by default
-        protected:
-          int ival;
-          char cval;
-      };
+    struct Derived2 : virtual public Base {
+        void foo(int); // public by default
+      protected:
+        int ival;
+        char cval;
+    };
 
-      class VMI : public Derived1, public Derived2 {
-          void fun(int i) {
-              bar(i);     // bar() of Derived1, the version in the derived class is given precedence over the shared virtual base class
-              // foo(i);  // invalid, foo() is defined in both D1 and D2, direct access to it is ambiguous
-              Derived1::foo(i);   // ok
-              i = Derived2::cval; // ok
-          }
-      };
-      ```
+    class VMI : public Derived1, public Derived2 {
+        void fun(int i) {
+            bar(i);     // bar() of Derived1, the version in the derived class is given precedence over the shared virtual base class
+            // foo(i);  // invalid, foo() is defined in both D1 and D2, direct access to it is ambiguous
+            Derived1::foo(i);   // ok
+            i = Derived2::cval; // ok
+        }
+    };
+    ```
 
-    * A class can have more than one virtual base class. In that case, the virtual subob- jects are constructed in left-to-right order as they appear in the derivation list. (P814)
+  * A class can have more than one virtual base class. In that case, the virtual subob- jects are constructed in left-to-right order as they appear in the derivation list. (P814)
 
-  * Polymorphism
-    * Overloaded functions must differ in the number or the type(s) of their parameters. The compiler can figure out which function to call. (P231)
-    * The fact that the static and dynamic types of references and pointers can differ is the cornerstone of how C++ supports polymorphism. (P605)
+* Polymorphism
+  * Overloaded functions must differ in the number or the type(s) of their parameters. The compiler can figure out which function to call. (P231)
+  * The fact that the static and dynamic types of references and pointers can differ is the cornerstone of how C++ supports polymorphism. (P605)
 
 ## MISC
 
 * [Scope](https://en.cppreference.com/w/cpp/language/scope)
+* [Use](https://www.studytonight.com/cpp/static-keyword.php) of [`static`](https://en.cppreference.com/w/cpp/keyword/static) keyword.
 * Assignmnet and initialization are different, **copy initialization** and **direct initialization** are different. P(497)
 * [ASCII](https://en.wikipedia.org/wiki/ASCII) encodes 128 specified characters into seven-bit integers
 * `EOF`: `Ctrl+Z` in Windows, `Ctrl+D` in Linux/macOS
@@ -435,3 +436,5 @@
 * The array returned by `s.c_str()` is not guaranteed to be valid indefinitely. Any subsequent use of s that might change the value of s can invalidate this array. (P125)
 * We can write a function that takes an unknown number of arguments of a single type by using an `initializer_list` parameter. (P220)
 * If a destructor does an operation that might throw, it should wrap that operation in a try block and handle it locally to the destructor. (P774)
+* Calling a destructor destroys an object but does not free the memory. (P824)
+* `volatile` Type qualifier that signifies to the compiler that a variable might be changed outside the direct control of the program. It is a signal to the compiler that it may not perform certain optimizations. (P856)
