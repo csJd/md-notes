@@ -1,5 +1,25 @@
 # My Frequently Forgotten Facts (FFFs)
 
+## [Data Model](https://docs.python.org/3/reference/datamodel.html)
+
+* All data in a Python program is represented by objects or by relations between objects.
+* Every object has an identity ([`id(x)`](https://docs.python.org/3/library/functions.html#id)), a type ([`type(x)`](https://docs.python.org/3/library/functions.html#type)) and a value (`x`). For CPython, `id(x)` is the memory address where `x` is stored.
+
+  ```python
+  In [1]: x = 1
+  In [2]: id(x)
+  Out[2]: 4485575824
+
+  In [3]: type(x)
+  Out[3]: int
+
+  In [4]: x
+  Out[4]: 1
+  ```
+
+* For immutable types, operations that compute new values **may** actually return a reference to any existing object with the same type and value, while for mutable objects this is not allowed.
+* A string is a sequence of values that represent Unicode code points. All the code points in the range `U+0000 - U+10FFFF` can be represented in a string.
+
 ## [Python STL](https://docs.python.org/3/library/index.html)
 
 * [`heapq`](https://docs.python.org/3/library/heapq.html): Heap, Priority queue
@@ -29,12 +49,14 @@
 
 ## Misc
 
+* [Python Glossary](https://docs.python.org/3/glossary.html)
 * [Time complexity of operations](https://wiki.python.org/moin/TimeComplexity)
 * [Operator precedence](https://docs.python.org/3/reference/expressions.html#operator-precedence)
 * [Object default methods](https://docs.python.org/3/reference/datamodel.html#basic-customization)
 * [`for ... break` statement](https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops)
 * [liscomps and genexps](https://docs.python-guide.org/writing/style/#short-ways-to-manipulate-lists)
 * `10 == 0b1010 == 0o12 == 0xa`: True, they are all valid literal of integer 10
+* If your module is the main program, then `__name__` will be set to "__main__" instead of module name (filename without .py)
 
 ## Be careful
 
