@@ -2,7 +2,7 @@
 
 ## Input/Output
 
-* `int a = 42, b = 052, c = 0x2a;`, a == b, b == c
+* `int a = 42, b = 052, c = 0x2a; a == b, b == c`
 
   ```cpp
   cout << dec << 42 << endl;  // output: 42
@@ -10,6 +10,8 @@
   cout << hex << 42 << endl;  // output: 2a
   // Input/output manipulators: https://en.cppreference.com/w/cpp/io/manip
   ```
+
+* `'0' == 0x30, '1' == 0x31, '2' == 0x32, ..., '9' == 0x39`
 
 * Bit operation
   * `n = n & (n-1)`: change the lowest 1 bit to 0
@@ -157,7 +159,7 @@
     cout << get<0>(tup) << endl;
     ```
 
-  * ['bitset'](https://en.cppreference.com/w/cpp/utility/bitset): `bitset<n> b;` `b` has `n` bits; each bit is 0.
+  * [`bitset`](https://en.cppreference.com/w/cpp/utility/bitset): `bitset<n> b;` `b` has `n` bits; each bit is 0.
 
 * When we initialize a container as a copy of another container, the **container type** and **element type** of both containers must be identical. (P335)
 * Every container type supports the equality operators (== and !=); all the containers except the unordered associative containers also support the relational operators (>, >=, <, <=). (P340)
@@ -371,15 +373,17 @@
 
 > KEY CONCEPT: NAME LOOKUP AND INHERITANCE (P619)
 > Understanding how function calls are resolved is crucial to understanding inheritance
-> in C++. Given the call `p->mem()` (or `obj.mem()`), the following four steps happen:
-> • First determine the static type of `p` (or `obj`). Because we’re calling a member,that type must be a class type.
-> • Look for `mem` in the class that corresponds to the static type of `p` (or `obj`).
+> in C++. Given the call `p->mem()` (or `obj.mem()`), the following four steps happen:  
+>  
+> * First determine the static type of `p` (or `obj`). Because we’re calling a member,that type must be a class type.  
+> * Look for `mem` in the class that corresponds to the static type of `p` (or `obj`).
 If `mem` is not found, look in the direct base class and continue up the chain of classes until `mem` is found or the last class is searched.
-If `mem` is not found in the class or its enclosing base classes, then the call will not compile.
-> • Once `mem` is found, do normal type checking (§6.1, p. 203) to see if this call is legal given the definition that was found.
-> • Assuming the call is legal, the compiler generates code,which varies depending on whether the call is virtual or not:
-> * If mem is virtual and the call is made through a reference or pointer, then the compiler generates code to determine at run time which version to run based on the dynamic type of the object.
-> * Otherwise,if the function is nonvirtual, or if the call is on an object (not a reference or pointer), the compiler generates a normal function call.
+If `mem` is not found in the class or its enclosing base classes, then the call will not compile.  
+> * Once `mem` is found, do normal type checking (§6.1, p. 203) to see if this call is legal given the definition that was found.  
+> * Assuming the call is legal, the compiler generates code,which varies depending on whether the call is virtual or not:  
+>  
+>   * If mem is virtual and the call is made through a reference or pointer, then the compiler generates code to determine at run time which version to run based on the dynamic type of the object.  
+>   * Otherwise,if the function is nonvirtual, or if the call is on an object (not a reference or pointer), the compiler generates a normal function call.
 
 * Multiple Inheritance and Virtual Inheritance
   * The order in which base classes are constructed depends on the order in which they appear in the class derivation list. (P804)
@@ -388,7 +392,7 @@ If `mem` is not found in the class or its enclosing base classes, then the call 
 
     ```cpp
     struct Base {
-    void bar(int); // public by default
+        void bar(int); // public by default
       protected:
         int ival;
     };
@@ -437,4 +441,4 @@ If `mem` is not found in the class or its enclosing base classes, then the call 
 * We can write a function that takes an unknown number of arguments of a single type by using an `initializer_list` parameter. (P220)
 * If a destructor does an operation that might throw, it should wrap that operation in a try block and handle it locally to the destructor. (P774)
 * Calling a destructor destroys an object but does not free the memory. (P824)
-* `volatile` Type qualifier that signifies to the compiler that a variable might be changed outside the direct control of the program. It is a signal to the compiler that it may not perform certain optimizations. (P856)
+* [`volatile`](https://en.cppreference.com/w/cpp/keyword/volatile) Type qualifier that signifies to the compiler that a variable might be changed outside the direct control of the program. It is a signal to the compiler that it may not perform certain optimizations. (P856)
