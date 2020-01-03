@@ -56,6 +56,8 @@
 
     varibale in a `const` declaration can be initialized by any valid expression; the compiler will verify that the variable is a constant expression when declaring a variable in a `constexpr` declaration. (P66)
 
+    Although constructors can’t be `const` (P262), constructors in a literal class can be `constexpr` (P239) functions. A constexpr constructor must meet the requirements of a constructor—meaning it can have no return statement—and of a `constexpr` function–meaning the only executable statement it can have is a return statement (P239). As a result, the body of a `constexpr` constructor is typically empty. (P300)
+
   * const member function
     The nonconst member function will not be viable for const objects; we can only call const member functions on a const object. We can call either version on a nonconst object, but the nonconst version will be a better match. (P276)
 
@@ -426,6 +428,18 @@ If `mem` is not found in the class or its enclosing base classes, then the call 
 * Polymorphism
   * Overloaded functions must differ in the number or the type(s) of their parameters. The compiler can figure out which function to call. (P231)
   * The fact that the static and dynamic types of references and pointers can differ is the cornerstone of how C++ supports polymorphism. (P605)
+
+## C++ 11  
+
+* `auto`, `decltype`; `constexpr` in constructor, function and variable; `final`, `override`
+* `long long`, `array`, `forward_list`, `tuple`, unordered containers
+* range `for` statement: `for (char c: str) {}`
+* `to_string()`, `stoi()`; `begin()`, `end()`; `v.cbegin()`, `v.cend()`; `bind()`
+* rvalue reference
+* `move()`, move constructor, move iterator; `forward()`
+* lambda expression; trailing return type
+* smart pointer: `shared_ptr`, `unique_ptr`, `weak_ptr`; `nullptr`
+* list initialization
 
 ## MISC
 
