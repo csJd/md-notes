@@ -105,3 +105,13 @@ ssh -L <local port>:<remote host>:<remote port> user@host -p <ssh-port>
 ssh -N -f -L 8888:localhost:8888 user@host -p 18226  # example for jupyter
 ssh -N -f -L 6006:localhost:6006 user@host  # example for tensorboard
 ```
+
+### MISC
+* [`crontab -e`](http://cht.sh/crontab)
+  ```sh
+  # format: minute[0-59] hour[0-23] day[1-31] month[1-12] week[0-7] command
+  # echo the date to the console every 15minutes between 6pm and 6am
+  0,15,30,45 18-06 * * * /bin/echo 'date' > /dev/console
+  # run mycommand every 5 minute on April 1st
+  */5 * 1 4 * mycommand
+  ```
