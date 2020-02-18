@@ -47,6 +47,10 @@
   '1991-10-12 was on a Saturday'
   ```
 
+## GIL
+
+* The CPython interpreter is not thread-safe internally, so it has a Global Interpreter Lock (GIL), which allows only one thread at a time to execute Python bytecodes. That’s why a single Python process usually cannot use multiple CPU cores at the same time. (Fluent Python P515)
+
 ## Misc
 
 * [Python Glossary](https://docs.python.org/3/glossary.html)
