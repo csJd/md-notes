@@ -125,3 +125,13 @@ ssh -N -f -L 6006:localhost:6006 user@host  # example for tensorboard
   # run mycommand hourly
   @hourly mycommand
   ```
+
+* [Setup Swap File on Linux](https://www.vultr.com/docs/setup-swap-file-on-linux)
+
+  ```sh
+  dd if=/dev/zero of=/var/swapfile bs=1M count=1024 # 1G
+  chmod 600 /var/swapfile
+  mkswap /var/swapfile
+  swapon /var/swapfile
+  echo "/var/swapfile  none  swap  sw  0  0" >> /etc/fstab
+  ```
