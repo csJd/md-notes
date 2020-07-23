@@ -25,9 +25,12 @@
 * Disable dark mode for an APP
   ```defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool true```
 
-* Disable .DS_Store generate
+* Disable .DS_Store generate for usb and network
   ```defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true```
   ```defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true```
 
 * Disable spotlight for external disk
   ```sudo touch /Volumes/your_volume_name_here/.metadata_never_index```
+
+* Check battery current capacity
+  ```ioreg -rn AppleSmartBattery | grep -i capacity```
