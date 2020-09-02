@@ -113,6 +113,7 @@ ssh -N -f -L 6006:localhost:6006 user@host  # example for tensorboard
 ```
 
 ## MISC
+* useful commands: [`dstat`](https://linux.die.net/man/1/dstat), [`nslookup`](https://linux.die.net/man/1/nslookup), [`strace`](https://strace.io/)
 
 * [`crontab -e`](https://help.ubuntu.com/community/CronHowto#Enable%20User%20Level%20Cron)
 
