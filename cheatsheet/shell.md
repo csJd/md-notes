@@ -145,3 +145,7 @@ echo ${#Fruits}             # String length of the 1st element
 echo ${#Fruits[3]}          # String length of the Nth element
 echo ${Fruits[@]:3:2}       # Range (from position 3, length 2)
 ```
+
+#### Misc
+
+- ['|' before '||'](https://wiki-dev.bash-hackers.org/syntax/basicgrammar#pipelines)
