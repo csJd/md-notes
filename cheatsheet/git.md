@@ -62,6 +62,7 @@ git push
 ------
 ### 1. Set my [.gitconfig](https://git-scm.com/docs/git-config#_syntax)
 Learn it [here](https://classroom.udacity.com/courses/ud775/lessons/2980038599/concepts/33417185870923)
+
 ``` sh
 git config --global core.editor "'d:/dsr/sublime-text-3/sublime_text.exe' -n -w"
 # Configure Git on Windows to properly handle line endings
@@ -70,6 +71,8 @@ git config --global push.default upstream
 git config --global merge.conflictstyle diff3
 git config --global user.name "Deng"
 git config --global user.email "scutjd@gmail.com"
+git config --global http.proxy 'socks5://127.0.0.1:1080'
+# git config --edit --global  # edit config in text editor
 ```
 
 ### 2. `diff`s
